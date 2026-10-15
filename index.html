@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>oekit — Open Easy Kit | 开源易用的 Go 工具集</title>
-<meta name="description" content="oekit（Open Easy Kit）— 37 个独立发版的 Go 模块：日志、追踪、服务发现、中间件、微工具库。开源、易用、工具集合。">
+<meta name="description" content="oekit（Open Easy Kit）— 22 个独立发版的 Go 模块：日志、追踪、服务发现、中间件、微工具库。开源、易用、工具集合。">
 <style>
   :root {
     --bg: #0b0f14; --bg2: #10161d; --card: #151d26; --line: #223041;
@@ -88,11 +88,11 @@
     <div class="kicker">Open · Easy · Kit</div>
     <h1>oe<b>kit</b></h1>
     <div class="expansion"><b>O</b>pen <b>E</b>asy <b>Kit</b> — 开源 · 易用 · 工具集合</div>
-    <p class="sub">37 个独立发版的 Go 模块：微工具库、日志与可观测门面、注册发现、HTTP/RPC 生态、应用引导。
+    <p class="sub">22 个独立发版的 Go 模块：微工具库、日志与可观测门面、注册发现、HTTP/RPC 生态、应用引导。
     按需取用一个，或组全套骨架；每仓独立 SemVer、独立 CI、零强制捆绑。</p>
     <div class="cta">
       <a class="btn primary" href="#quickstart">go get oekit</a>
-      <a class="btn" href="https://github.com/orgs/oekit/repositories">浏览 38 个仓库 →</a>
+      <a class="btn" href="https://github.com/orgs/oekit/repositories">浏览全部仓库 →</a>
     </div>
   </div>
 </div>
@@ -112,22 +112,7 @@
 
     <div class="layer"><div class="name">L0 · 微工具库 / 基础件（零矩阵依赖）</div>
       <div class="chips">
-        <a href="https://github.com/oekit/errors">errors<small>错误链/BizError</small></a>
-        <a href="https://github.com/oekit/validator">validator<small>参数校验</small></a>
-        <a href="https://github.com/oekit/stringx">stringx<small>字符串</small></a>
-        <a href="https://github.com/oekit/slicex">slicex<small>切片</small></a>
-        <a href="https://github.com/oekit/enumx">enumx<small>枚举</small></a>
-        <a href="https://github.com/oekit/convert">convert<small>类型转换</small></a>
-        <a href="https://github.com/oekit/encoding">encoding<small>编解码</small></a>
-        <a href="https://github.com/oekit/jsonrepair">jsonrepair<small>JSON 修复</small></a>
-        <a href="https://github.com/oekit/httpjson">httpjson<small>HTTP JSON</small></a>
-        <a href="https://github.com/oekit/mathx">mathx<small>数学</small></a>
-        <a href="https://github.com/oekit/pathx">pathx<small>glob</small></a>
-        <a href="https://github.com/oekit/pagination">pagination<small>分页</small></a>
-        <a href="https://github.com/oekit/ptrx">ptrx<small>指针</small></a>
-        <a href="https://github.com/oekit/timex">timex<small>时间/cron</small></a>
-        <a href="https://github.com/oekit/uidgen">uidgen<small>ID 生成</small></a>
-        <a href="https://github.com/oekit/cache">cache<small>刷新缓存</small></a>
+        <a href="https://github.com/oekit/pkg">pkg<small>16 合 1 微工具集：errors/stringx/convert/timex/…</small></a>
         <a href="https://github.com/oekit/concurrency">concurrency<small>并发原语</small></a>
         <a href="https://github.com/oekit/logx">logx<small>日志门面</small></a>
         <a href="https://github.com/oekit/istio">istio<small>Istio XDS</small></a>
@@ -170,8 +155,8 @@
 
   <section id="quickstart">
     <h2>快速开始 <span class="sub">按需取用，一个 import 就能跑</span></h2>
-<pre><span class="c"># 只要一个微库</span>
-<span class="g">go get</span> github.com/oekit/stringx@latest
+<pre><span class="c"># 微工具集（16 合 1）</span>
+<span class="g">go get</span> github.com/oekit/pkg@latest
 
 <span class="c"># 日志 + 追踪 + 注册发现</span>
 <span class="g">go get</span> github.com/oekit/logx github.com/oekit/tracing github.com/oekit/registry
@@ -180,12 +165,15 @@
 <span class="g">go get</span> github.com/oekit/middleware github.com/oekit/hertz</pre>
 <pre><span class="c">package main</span>
 
-import <span class="g">"github.com/oekit/logx"</span>
+import (
+    <span class="g">"github.com/oekit/logx"</span>
+    <span class="g">"github.com/oekit/pkg/stringx"</span>
+)
 
 var svcLog = logx.WithService("my-service")
 
 func main() {
-    svcLog.Info("hello oekit", "version", 1)
+    svcLog.Info(stringx.Pluralize(3, "module"), "version", 1)
 }</pre>
 
     <h2>兼容性 <span class="sub">从 ekit 单体迁移</span></h2>

@@ -23,7 +23,7 @@ oekit 是一套按"框架耦合分层"组织的独立 Go 模块矩阵：**37 个
 
 | 层 | 模块 |
 |---|---|
-| L0 微工具库 / 基础件 | [errors](https://github.com/oekit/errors) · [validator](https://github.com/oekit/validator) · [stringx](https://github.com/oekit/stringx) · [slicex](https://github.com/oekit/slicex) · [enumx](https://github.com/oekit/enumx) · [convert](https://github.com/oekit/convert) · [encoding](https://github.com/oekit/encoding) · [jsonrepair](https://github.com/oekit/jsonrepair) · [httpjson](https://github.com/oekit/httpjson) · [mathx](https://github.com/oekit/mathx) · [pathx](https://github.com/oekit/pathx) · [pagination](https://github.com/oekit/pagination) · [ptrx](https://github.com/oekit/ptrx) · [timex](https://github.com/oekit/timex) · [uidgen](https://github.com/oekit/uidgen) · [cache](https://github.com/oekit/cache) · [concurrency](https://github.com/oekit/concurrency) · [logx](https://github.com/oekit/logx) · [istio](https://github.com/oekit/istio) · [core](https://github.com/oekit/core) |
+| L0 微工具库 / 基础件 | [errors](https://github.com/oekit/pkg/errors) · [validator](https://github.com/oekit/pkg/validator) · [stringx](https://github.com/oekit/pkg/stringx) · [slicex](https://github.com/oekit/pkg/slicex) · [enumx](https://github.com/oekit/pkg/enumx) · [convert](https://github.com/oekit/pkg/convert) · [encoding](https://github.com/oekit/pkg/encoding) · [jsonrepair](https://github.com/oekit/pkg/jsonrepair) · [httpjson](https://github.com/oekit/pkg/httpjson) · [mathx](https://github.com/oekit/pkg/mathx) · [pathx](https://github.com/oekit/pkg/pathx) · [pagination](https://github.com/oekit/pkg/pagination) · [ptrx](https://github.com/oekit/pkg/ptrx) · [timex](https://github.com/oekit/pkg/timex) · [uidgen](https://github.com/oekit/pkg/uidgen) · [cache](https://github.com/oekit/pkg/cache) · [concurrency](https://github.com/oekit/concurrency) · [logx](https://github.com/oekit/logx) · [istio](https://github.com/oekit/istio) · [core](https://github.com/oekit/core) |
 | L1 门面 / 注册发现 | [metrics](https://github.com/oekit/metrics) · [tracing](https://github.com/oekit/tracing) · [registry](https://github.com/oekit/registry) |
 | L2 领域件 | [data](https://github.com/oekit/data) · [gorm](https://github.com/oekit/gorm) · [redis](https://github.com/oekit/redis) · [httpx](https://github.com/oekit/httpx) · [timertask](https://github.com/oekit/timertask) · [middleware](https://github.com/oekit/middleware) · [nns](https://github.com/oekit/nns) · [nns-endpoint](https://github.com/oekit/nns-endpoint) |
 | L3 应用层 / 框架生态 | [bootstrap](https://github.com/oekit/bootstrap) · [handler](https://github.com/oekit/handler) · [hertz](https://github.com/oekit/hertz) · [kitex](https://github.com/oekit/kitex) · [workflow](https://github.com/oekit/workflow) · [kitex-examples](https://github.com/oekit/kitex-examples) |
@@ -31,8 +31,8 @@ oekit 是一套按"框架耦合分层"组织的独立 Go 模块矩阵：**37 个
 ## 快速开始
 
 ```bash
-# 只要一个微库
-go get github.com/oekit/stringx@latest
+# 微工具集
+go get github.com/oekit/pkg@latest
 
 # HTTP 服务全家
 go get github.com/oekit/middleware github.com/oekit/hertz
