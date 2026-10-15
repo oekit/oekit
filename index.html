@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>oekit — Open Easy Kit | 开源易用的 Go 工具集</title>
+<meta name="description" content="oekit（Open Easy Kit）— 37 个独立发版的 Go 模块：日志、追踪、服务发现、中间件、微工具库。开源、易用、工具集合。">
+<style>
+  :root {
+    --bg: #0b0f14; --bg2: #10161d; --card: #151d26; --line: #223041;
+    --fg: #e6edf3; --muted: #8b98a5; --accent: #38d39f; --accent2: #4da3ff;
+    --mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font-family: -apple-system, "PingFang SC", "Segoe UI", sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(11,15,20,.9); backdrop-filter: blur(8px); z-index: 10; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-family: var(--mono); font-weight: 700; font-size: 20px; letter-spacing: 1px; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); margin-left: 24px; font-size: 14px; }
+  nav a:hover { color: var(--fg); text-decoration: none; }
+
+  .hero { padding: 88px 0 64px; text-align: center;
+    background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(56,211,159,.13), transparent); }
+  .hero .kicker { font-family: var(--mono); color: var(--accent); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; }
+  .hero h1 { font-family: var(--mono); font-size: clamp(48px, 9vw, 84px); letter-spacing: 2px; margin: 12px 0 8px; }
+  .hero h1 b { color: var(--accent); }
+  .hero .expansion { font-size: 18px; color: var(--fg); margin-bottom: 10px; }
+  .hero .expansion b { color: var(--accent); }
+  .hero p.sub { color: var(--muted); max-width: 640px; margin: 0 auto 32px; font-size: 16px; }
+  .hero .cta { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-block; padding: 11px 22px; border-radius: 8px; font-family: var(--mono); font-size: 14px; border: 1px solid var(--line); color: var(--fg); transition: all .15s; }
+  .btn:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); color: #06281c; border-color: var(--accent); font-weight: 700; }
+  .btn.primary:hover { filter: brightness(1.1); }
+
+  .triad { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 8px 0 72px; }
+  .triad .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 26px; }
+  .triad h3 { font-size: 17px; margin-bottom: 8px; }
+  .triad h3 .en { font-family: var(--mono); color: var(--accent); font-size: 13px; margin-right: 8px; }
+  .triad p { color: var(--muted); font-size: 14px; }
+
+  h2 { font-size: 26px; margin: 56px 0 6px; }
+  h2 .sub { font-size: 14px; color: var(--muted); font-weight: 400; display: block; margin-top: 4px; }
+  section { padding-bottom: 24px; }
+
+  .layer { margin-top: 22px; }
+  .layer .name { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: 1px; margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips a { font-family: var(--mono); font-size: 13px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; color: var(--fg); transition: all .15s; }
+  .chips a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .chips a small { color: var(--muted); margin-left: 6px; }
+
+  pre { background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; overflow-x: auto; font-family: var(--mono); font-size: 13.5px; margin: 14px 0; }
+  pre .c { color: var(--muted); }
+  pre .g { color: var(--accent); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 16px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  td.m { font-family: var(--mono); }
+
+  footer { border-top: 1px solid var(--line); margin-top: 72px; padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer .logo { font-size: 15px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">oe<span>kit</span></div>
+    <nav>
+      <a href="#modules">模块</a>
+      <a href="#quickstart">快速开始</a>
+      <a href="#why">为什么是 oekit</a>
+      <a href="https://github.com/orgs/oekit/repositories">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Open · Easy · Kit</div>
+    <h1>oe<b>kit</b></h1>
+    <div class="expansion"><b>O</b>pen <b>E</b>asy <b>Kit</b> — 开源 · 易用 · 工具集合</div>
+    <p class="sub">37 个独立发版的 Go 模块：微工具库、日志与可观测门面、注册发现、HTTP/RPC 生态、应用引导。
+    按需取用一个，或组全套骨架；每仓独立 SemVer、独立 CI、零强制捆绑。</p>
+    <div class="cta">
+      <a class="btn primary" href="#quickstart">go get oekit</a>
+      <a class="btn" href="https://github.com/orgs/oekit/repositories">浏览 38 个仓库 →</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="triad" id="why">
+    <div class="card"><h3><span class="en">Open</span>开源</h3>
+      <p>全部 MIT 协议，源码即文档。38 个仓库全部公开、可审计、可 fork——不锁平台，不玩闭源阉割。</p></div>
+    <div class="card"><h3><span class="en">Easy</span>易用</h3>
+      <p>每个模块只做一件事，import 即用；微库零依赖或至多一条内部依赖，不会为了一个字符串函数拖进整个框架。</p></div>
+    <div class="card"><h3><span class="en">Kit</span>工具集合</h3>
+      <p>从 <code>errors</code>/<code>stringx</code> 微库到 Hertz/Kitex 生态适配器，同套规范同套接口分层，既能单点取用也能组全套骨架。</p></div>
+  </div>
+
+  <section id="modules">
+    <h2>模块矩阵 <span class="sub">依赖严格自底向上 · 每仓独立发版</span></h2>
+
+    <div class="layer"><div class="name">L0 · 微工具库 / 基础件（零矩阵依赖）</div>
+      <div class="chips">
+        <a href="https://github.com/oekit/errors">errors<small>错误链/BizError</small></a>
+        <a href="https://github.com/oekit/validator">validator<small>参数校验</small></a>
+        <a href="https://github.com/oekit/stringx">stringx<small>字符串</small></a>
+        <a href="https://github.com/oekit/slicex">slicex<small>切片</small></a>
+        <a href="https://github.com/oekit/enumx">enumx<small>枚举</small></a>
+        <a href="https://github.com/oekit/convert">convert<small>类型转换</small></a>
+        <a href="https://github.com/oekit/encoding">encoding<small>编解码</small></a>
+        <a href="https://github.com/oekit/jsonrepair">jsonrepair<small>JSON 修复</small></a>
+        <a href="https://github.com/oekit/httpjson">httpjson<small>HTTP JSON</small></a>
+        <a href="https://github.com/oekit/mathx">mathx<small>数学</small></a>
+        <a href="https://github.com/oekit/pathx">pathx<small>glob</small></a>
+        <a href="https://github.com/oekit/pagination">pagination<small>分页</small></a>
+        <a href="https://github.com/oekit/ptrx">ptrx<small>指针</small></a>
+        <a href="https://github.com/oekit/timex">timex<small>时间/cron</small></a>
+        <a href="https://github.com/oekit/uidgen">uidgen<small>ID 生成</small></a>
+        <a href="https://github.com/oekit/cache">cache<small>刷新缓存</small></a>
+        <a href="https://github.com/oekit/concurrency">concurrency<small>并发原语</small></a>
+        <a href="https://github.com/oekit/logx">logx<small>日志门面</small></a>
+        <a href="https://github.com/oekit/istio">istio<small>Istio XDS</small></a>
+        <a href="https://github.com/oekit/core">core<small>治理 schema/契约</small></a>
+      </div>
+    </div>
+
+    <div class="layer"><div class="name">L1 · 可观测门面 / 注册发现</div>
+      <div class="chips">
+        <a href="https://github.com/oekit/metrics">metrics<small>Prometheus</small></a>
+        <a href="https://github.com/oekit/tracing">tracing<small>OTel + traceid</small></a>
+        <a href="https://github.com/oekit/registry">registry<small>注册发现 + Nacos</small></a>
+      </div>
+    </div>
+
+    <div class="layer"><div class="name">L2 · 领域件</div>
+      <div class="chips">
+        <a href="https://github.com/oekit/data">data<small>缓存抽象</small></a>
+        <a href="https://github.com/oekit/gorm">gorm<small>SQL/CRUD</small></a>
+        <a href="https://github.com/oekit/redis">redis<small>Redis 全家</small></a>
+        <a href="https://github.com/oekit/httpx">httpx<small>HTTP 客户端</small></a>
+        <a href="https://github.com/oekit/timertask">timertask<small>分片定时任务</small></a>
+        <a href="https://github.com/oekit/middleware">middleware<small>Hertz 中间件栈</small></a>
+        <a href="https://github.com/oekit/nns">nns<small>服务治理</small></a>
+        <a href="https://github.com/oekit/nns-endpoint">nns-endpoint<small>端点熔断</small></a>
+      </div>
+    </div>
+
+    <div class="layer"><div class="name">L3 · 应用层 / 框架生态</div>
+      <div class="chips">
+        <a href="https://github.com/oekit/bootstrap">bootstrap<small>应用引导</small></a>
+        <a href="https://github.com/oekit/handler">handler<small>CRUD handler</small></a>
+        <a href="https://github.com/oekit/hertz">hertz<small>Hertz 运行时</small></a>
+        <a href="https://github.com/oekit/kitex">kitex<small>Kitex 生态</small></a>
+        <a href="https://github.com/oekit/workflow">workflow<small>流程编排</small></a>
+        <a href="https://github.com/oekit/kitex-examples">kitex-examples<small>示例</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="quickstart">
+    <h2>快速开始 <span class="sub">按需取用，一个 import 就能跑</span></h2>
+<pre><span class="c"># 只要一个微库</span>
+<span class="g">go get</span> github.com/oekit/stringx@latest
+
+<span class="c"># 日志 + 追踪 + 注册发现</span>
+<span class="g">go get</span> github.com/oekit/logx github.com/oekit/tracing github.com/oekit/registry
+
+<span class="c"># HTTP 服务全家（中间件栈 + Hertz 运行时）</span>
+<span class="g">go get</span> github.com/oekit/middleware github.com/oekit/hertz</pre>
+<pre><span class="c">package main</span>
+
+import <span class="g">"github.com/oekit/logx"</span>
+
+var svcLog = logx.WithService("my-service")
+
+func main() {
+    svcLog.Info("hello oekit", "version", 1)
+}</pre>
+
+    <h2>兼容性 <span class="sub">从 ekit 单体迁移</span></h2>
+    <table>
+      <tr><th>旧路径（已归档，重定向仍可用）</th><th>新路径</th></tr>
+      <tr><td class="m">git.enjoye.top/enjoydream/ekit/…</td><td class="m">github.com/oekit/…</td></tr>
+      <tr><td class="m">github.com/yi-nology/ekit-…</td><td class="m">github.com/oekit/…</td></tr>
+    </table>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">oe<span>kit</span></div>
+    <div>Open Easy Kit · MIT License · <a href="https://github.com/orgs/oekit/repositories">github.com/oekit</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
