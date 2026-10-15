@@ -2,10 +2,14 @@
 
 > **O**pen **E**asy **Kit** — 开源 · 易用 · 工具集合
 
+> 🌐 官方站点：<https://oekit.github.io/>（源码在 [oekit/oekit.github.io](https://github.com/oekit/oekit.github.io)，含 7 篇指南）
+
+本仓为 oekit 项目主仓（项目说明与快照）。
+
 oekit 是一套按"框架耦合分层"组织的独立 Go 模块矩阵：**37 个活跃仓库（+1 归档），每仓独立发版（SemVer）、独立 CI、按需取用**。
 从 `errors` / `stringx` 这类零依赖微库，到 Hertz / Kitex 生态适配器，全部遵循同一套接口分层与开发规范。
 
-- 项目主页：**https://oekit.github.io/oekit/**
+- 项目主页：**https://oekit.github.io/**
 - 组织：https://github.com/orgs/oekit/repositories
 - 协议：MIT
 
