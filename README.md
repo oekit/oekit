@@ -15,7 +15,12 @@ oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块�
 
 依赖严格自底向上：**上层依赖下层，全矩阵无环**。
 
-![oekit 模块矩阵 · 架构总览](docs/assets/architecture.svg)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/architecture-dark.svg">
+    <img src="docs/assets/architecture.svg" alt="oekit 模块矩阵 · 架构总览">
+  </picture>
+</p>
 
 | 能力层 | 模块 |
 |---|---|
