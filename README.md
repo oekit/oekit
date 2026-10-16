@@ -2,7 +2,7 @@
 
 > **O**pen **E**asy **Kit** — 开源 · 易用 · 工具集合
 
-![modules](https://img.shields.io/badge/modules-23-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.25%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
+![modules](https://img.shields.io/badge/modules-23-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.24%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
 
 oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块仓库，每仓独立发版（SemVer）、独立 CI、按需取用**。
 从 `errors` / `stringx` 这类零依赖微库，到 Hertz / Kitex 生态适配器，全部遵循同一套接口分层与开发规范。
@@ -34,7 +34,8 @@ oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块�
 
 - **服务发现**：`hertz` / `kitex` → `nns` → `registry`（Nacos 实现 + 降级链）
 - **端点弹性**：`nns-endpoint` → `httpx`（per-service 熔断 + 换实例重试）
-- **数据访问**：`handler` → `gorm`（CRUD Service / 事务防丢更新）；`redis` → `data`（缓存检查器）
+- **数据访问**：`handler` → `gormx`（CRUD Service / 事务防丢更新）；`redisx` → `data`（缓存接口实现）
+- **弹性原语**：`concurrency`（滑动窗口 / 自适应熔断 `ErrCircuitOpen` / CPU 自适应降载）；`redisx` 内置 ratelimit（Redis 分布式限流，故障本地兜底）
 - **优雅关停**：`hertz.RunServer` / `kitex.RunServer` → `bootstrap` 组合根（排空连接 → 释放资源）
 
 > 完整「模块 × 依赖」表见各仓 README 的「矩阵总览」（由 [matrix-tools](https://github.com/oekit/matrix-tools) 自动生成与每周巡检）。
@@ -55,6 +56,9 @@ go get github.com/oekit/pkg@latest
 
 # HTTP 服务全家
 go get github.com/oekit/middleware github.com/oekit/hertz
+
+# 日志门面 + Redis 全家桶
+go get github.com/oekit/logx github.com/oekit/redisx
 ```
 
 ## AI Agent 入口
@@ -69,6 +73,8 @@ go get github.com/oekit/middleware github.com/oekit/hertz
 |---|---|
 | `git.enjoye.top/enjoydream/ekit/…`（ekit 单体，冻结维护） | `github.com/oekit/…` |
 | `github.com/yi-nology/ekit-…` | `github.com/oekit/…` |
+| `github.com/oekit/redis` | `github.com/oekit/redisx`（v0.5.0 起） |
+| `github.com/oekit/gorm` | `github.com/oekit/gormx`（v0.3.0 起） |
 
 ## License
 
