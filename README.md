@@ -2,10 +2,10 @@
 
 > **O**pen **E**asy **Kit** — 开源 · 易用 · 工具集合
 
-![modules](https://img.shields.io/badge/modules-23-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.24%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
+![modules](https://img.shields.io/badge/modules-21-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.24%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
 
-oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块仓库，每仓独立发版（SemVer）、独立 CI、按需取用**。
-从 `errors` / `stringx` 这类零依赖微库，到 Hertz / Kitex 生态适配器，全部遵循同一套接口分层与开发规范。
+oekit 是一套按能力分层的独立 Go 模块矩阵：**21 个活跃模块仓库，每仓独立发版（SemVer）、独立 CI、按需取用**。
+从 `errors` / `timex` 这类零依赖微包，到 Hertz / Kitex 生态适配器，全部遵循同一套接口分层与开发规范。
 
 - 项目主页：**https://oekit.github.io/**
 - 组织：https://github.com/orgs/oekit/repositories
@@ -24,17 +24,17 @@ oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块�
 
 | 能力层 | 模块 |
 |---|---|
-| 应用引导 · 框架生态 | [bootstrap](https://github.com/oekit/bootstrap) · [hertz](https://github.com/oekit/hertz) · [kitex](https://github.com/oekit/kitex) · [middleware](https://github.com/oekit/middleware) · [handler](https://github.com/oekit/handler) · [workflow](https://github.com/oekit/workflow) · [istio](https://github.com/oekit/istio) · [kitex-examples](https://github.com/oekit/kitex-examples) |
+| 应用引导 · 框架生态 | [bootstrap](https://github.com/oekit/bootstrap) · [hertz](https://github.com/oekit/hertz) · [kitex](https://github.com/oekit/kitex) · [middleware](https://github.com/oekit/middleware) · [workflow](https://github.com/oekit/workflow) · [kitex-examples](https://github.com/oekit/kitex-examples) |
 | 通信 · 服务治理 | [httpx](https://github.com/oekit/httpx) · [nns-endpoint](https://github.com/oekit/nns-endpoint) · [network](https://github.com/oekit/network) · [nns](https://github.com/oekit/nns) · [registry](https://github.com/oekit/registry) |
 | 数据访问 | [gormx](https://github.com/oekit/gormx) · [redisx](https://github.com/oekit/redisx) · [data](https://github.com/oekit/data) · [timertask](https://github.com/oekit/timertask) |
 | 可观测性 | [logx](https://github.com/oekit/logx) · [tracing](https://github.com/oekit/tracing) · [metrics](https://github.com/oekit/metrics) |
-| 基础库 | [pkg](https://github.com/oekit/pkg)（20 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) |
+| 基础库 | [pkg](https://github.com/oekit/pkg)（21 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) |
 
 几条关键依赖链：
 
 - **服务发现**：`hertz` / `kitex` → `nns` → `registry`（Nacos 实现 + 降级链）
 - **端点弹性**：`nns-endpoint` → `httpx`（per-service 熔断 + 换实例重试）
-- **数据访问**：`handler` → `gormx`（CRUD Service / 事务防丢更新）；`redisx` → `data`（缓存接口实现）
+- **数据访问**：`hertz/crudh` → `gormx`（泛型 CRUD Handler / 事务防丢更新）；`redisx` → `data`（缓存接口实现）
 - **弹性原语**：`concurrency`（滑动窗口 / 自适应熔断 `ErrCircuitOpen` / CPU 自适应降载）；`redisx` 内置 ratelimit（Redis 分布式限流，故障本地兜底）
 - **优雅关停**：`hertz.RunServer` / `kitex.RunServer` → `bootstrap` 组合根（排空连接 → 释放资源）
 
@@ -75,6 +75,9 @@ go get github.com/oekit/logx github.com/oekit/redisx
 | `github.com/yi-nology/ekit-…` | `github.com/oekit/…` |
 | `github.com/oekit/redis` | `github.com/oekit/redisx`（v0.5.0 起） |
 | `github.com/oekit/gorm` | `github.com/oekit/gormx`（v0.3.0 起） |
+| `github.com/oekit/istio` | `github.com/oekit/kitex/istio`（v0.5.0 起，微库已收编） |
+| `github.com/oekit/handler/xxx` | `github.com/oekit/hertz/xxx`（v0.5.0 起，微库已收编） |
+| `github.com/oekit/<旧微库>`（stringx/slicex/validator 等已删仓） | `github.com/oekit/pkg/xxx`（微库并入 pkg） |
 
 ## License
 
