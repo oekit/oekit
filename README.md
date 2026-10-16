@@ -28,7 +28,7 @@ oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块�
 | 通信 · 服务治理 | [httpx](https://github.com/oekit/httpx) · [nns-endpoint](https://github.com/oekit/nns-endpoint) · [network](https://github.com/oekit/network) · [nns](https://github.com/oekit/nns) · [registry](https://github.com/oekit/registry) |
 | 数据访问 | [gormx](https://github.com/oekit/gormx) · [redisx](https://github.com/oekit/redisx) · [data](https://github.com/oekit/data) · [timertask](https://github.com/oekit/timertask) |
 | 可观测性 | [logx](https://github.com/oekit/logx) · [tracing](https://github.com/oekit/tracing) · [metrics](https://github.com/oekit/metrics) |
-| 基础库 | [pkg](https://github.com/oekit/pkg)（16 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) |
+| 基础库 | [pkg](https://github.com/oekit/pkg)（20 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) |
 
 几条关键依赖链：
 
