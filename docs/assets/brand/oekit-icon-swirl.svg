@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="oekit">
+  <defs>
+    <linearGradient id="oekit-swirl-badge" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#71A8FF"/>
+      <stop offset="1" stop-color="#3A62E9"/>
+    </linearGradient>
+    <linearGradient id="oekit-swirl-face" x1="0" y1="90" x2="0" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D3E0F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#oekit-swirl-badge)"/>
+  <g fill="none" stroke="#2547BC" stroke-width="56" stroke-linecap="round" opacity="0.5" transform="translate(0,9)">
+    <path d="M 338.1,210.3 A 118 118 0 0 1 298.0,359.8"/>
+    <path d="M 223.8,379.7 A 118 118 0 0 1 114.3,270.2"/>
+    <path d="M 134.2,196.0 A 118 118 0 0 1 283.7,155.9"/>
+    <path d="M 236,258 L 405,124" stroke-width="40"/>
+  </g>
+  <polygon points="441.1,86.9 438.3,146.3 384.5,143.5 381.7,89.7" fill="#2547BC" opacity="0.5" transform="translate(0,9)"/>
+  <g fill="none" stroke="url(#oekit-swirl-face)" stroke-width="56" stroke-linecap="round">
+    <path d="M 338.1,210.3 A 118 118 0 0 1 298.0,359.8"/>
+    <path d="M 223.8,379.7 A 118 118 0 0 1 114.3,270.2"/>
+    <path d="M 134.2,196.0 A 118 118 0 0 1 283.7,155.9"/>
+  </g>
+  <path d="M 236,258 L 405,124" stroke="url(#oekit-swirl-face)" stroke-width="40" stroke-linecap="round" fill="none"/>
+  <polygon points="441.1,86.9 438.3,146.3 384.5,143.5 381.7,89.7" fill="url(#oekit-swirl-face)"/>
+  <g fill="none" stroke="#6D9BFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 398,106 L 386,118 L 398,130"/>
+    <path d="M 422,106 L 434,118 L 422,130"/>
+  </g>
+</svg>
