@@ -7,12 +7,12 @@ require (
 	github.com/oekit/bootstrap v0.6.2
 	github.com/oekit/bootstrap/nacos v0.3.2
 	github.com/oekit/bootstrap/obs v0.2.7
-	github.com/oekit/concurrency v0.16.0
+	github.com/oekit/concurrency v0.17.0
 	github.com/oekit/core v0.9.1
-	github.com/oekit/data v0.13.0
+	github.com/oekit/data v0.14.0
 	github.com/oekit/etcdx v0.1.5
-	github.com/oekit/gormx v0.5.5
-	github.com/oekit/hertz v0.6.4
+	github.com/oekit/gormx v0.6.0
+	github.com/oekit/hertz v0.7.0
 	github.com/oekit/httpx v0.6.1
 	github.com/oekit/k8s v0.1.2
 	github.com/oekit/kitex v0.6.2
@@ -24,9 +24,9 @@ require (
 	github.com/oekit/logx/kitexlog v0.1.3
 	github.com/oekit/logx/sink v0.1.0
 	github.com/oekit/metrics v0.1.7
-	github.com/oekit/middleware v0.11.0
+	github.com/oekit/middleware v0.12.0
 	github.com/oekit/network v0.5.4
-	github.com/oekit/nns v0.4.1
+	github.com/oekit/nns v0.4.2
 	github.com/oekit/nns-endpoint v0.2.3
 	github.com/oekit/pkg v0.14.0
 	github.com/oekit/redisx v0.9.0
