@@ -61,7 +61,24 @@ go get github.com/oekit/middleware github.com/oekit/hertz
 
 # 日志门面 + Redis 全家桶
 go get github.com/oekit/logx github.com/oekit/redisx
+
+# 或：一次拉齐一组经矩阵 CI 验证的兼容版本（BOM 快照，本仓即该模块）
+go get github.com/oekit/oekit@latest
 ```
+
+## 兼容矩阵快照（BOM 模块）
+
+各模块独立 SemVer，数字本身不带兼容信息——**「这些模块当前互相兼容」**由本仓声明：
+`matrix.go` 记录全部模块（含 `logx/hlog` 等嵌套模块）的版本快照（`Matrix` / `Versions` /
+`VersionOf`），`go.mod` 以 require 地板钉住同一组版本。`go get github.com/oekit/oekit@latest`
+会把下游已用的 oekit 模块统一抬到快照口径（MVS 地板），不会静默落到互不兼容的旧组合；
+不需要整组对齐就按需 `go get` 各模块，本包零强制。
+
+- 快照由 `matrix-tools/scripts/gen_matrix_go.py` 从各仓**远端 tag** 生成，口径与
+  [versions.json](https://oekit.github.io/versions.json) 同源；矩阵版本变化后重跑生成并打新 tag（audit 有新鲜度门禁）
+- 每个模块的 GitHub Release（notes = 同版本 CHANGELOG 小节 + 该 tag go.mod 的矩阵依赖地板）
+  见各仓 Releases 页；`releases/latest` 全矩阵可解析
+- 本仓 go.mod 的 require 是无 import 的地板，**勿在此仓跑 `go mod tidy`**（会清掉；误跑后重跑生成器即恢复）
 
 ## AI Agent 入口
 
