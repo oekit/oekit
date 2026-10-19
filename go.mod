@@ -13,7 +13,7 @@ require (
 	github.com/oekit/etcdx v0.1.6
 	github.com/oekit/gormx v0.6.1
 	github.com/oekit/hertz v0.7.1
-	github.com/oekit/httpx v0.8.1
+	github.com/oekit/httpx v0.8.2
 	github.com/oekit/k8s v0.1.3
 	github.com/oekit/kitex v0.6.3
 	github.com/oekit/kitex-examples v0.1.18
