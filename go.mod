@@ -13,7 +13,7 @@ require (
 	github.com/oekit/etcdx v0.1.5
 	github.com/oekit/gormx v0.6.0
 	github.com/oekit/hertz v0.7.0
-	github.com/oekit/httpx v0.6.1
+	github.com/oekit/httpx v0.8.0
 	github.com/oekit/k8s v0.1.2
 	github.com/oekit/kitex v0.6.2
 	github.com/oekit/kitex-examples v0.1.17
@@ -28,7 +28,7 @@ require (
 	github.com/oekit/network v0.5.4
 	github.com/oekit/nns v0.4.2
 	github.com/oekit/nns-endpoint v0.2.3
-	github.com/oekit/pkg v0.14.0
+	github.com/oekit/pkg v0.15.0
 	github.com/oekit/redisx v0.9.0
 	github.com/oekit/registry v0.4.1
 	github.com/oekit/timertask v0.1.9
