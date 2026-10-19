@@ -4,12 +4,12 @@ go 1.26.0
 
 // ---- oekit BOM：矩阵兼容快照的地板 require（勿手改/勿 tidy，见 README）----
 require (
-	github.com/oekit/bootstrap v0.6.3
-	github.com/oekit/bootstrap/nacos v0.3.3
+	github.com/oekit/bootstrap v0.6.4
+	github.com/oekit/bootstrap/nacos v0.3.4
 	github.com/oekit/bootstrap/obs v0.2.8
 	github.com/oekit/concurrency v0.17.1
 	github.com/oekit/core v0.9.2
-	github.com/oekit/data v0.15.0
+	github.com/oekit/data v0.16.0
 	github.com/oekit/etcdx v0.1.6
 	github.com/oekit/gormx v0.6.1
 	github.com/oekit/hertz v0.7.1
@@ -23,7 +23,7 @@ require (
 	github.com/oekit/logx/hlog v0.1.3
 	github.com/oekit/logx/kitexlog v0.1.3
 	github.com/oekit/logx/sink v0.1.0
-	github.com/oekit/metrics v0.1.8
+	github.com/oekit/metrics v0.1.9
 	github.com/oekit/middleware v0.12.1
 	github.com/oekit/network v0.5.5
 	github.com/oekit/nns v0.4.3
