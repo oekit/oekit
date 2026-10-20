@@ -28,11 +28,11 @@ require (
 	github.com/oekit/network v0.5.5
 	github.com/oekit/nns v0.4.3
 	github.com/oekit/nns-endpoint v0.2.4
-	github.com/oekit/pkg v0.17.0
+	github.com/oekit/pkg v0.18.0
 	github.com/oekit/redisx v0.9.1
 	github.com/oekit/registry v0.4.2
 	github.com/oekit/timertask v0.2.1
 	github.com/oekit/timertask/redis v0.2.1
-	github.com/oekit/tracing v0.2.3
+	github.com/oekit/tracing v0.3.0
 	github.com/oekit/workflow v0.3.2
 )
