@@ -2,7 +2,7 @@
 
 > **O**pen **E**asy **Kit** — 开源 · 易用 · 工具集合
 
-![modules](https://img.shields.io/badge/modules-24-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.24%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
+![modules](https://img.shields.io/badge/modules-24-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.26%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
 
 oekit 是一套按能力分层的独立 Go 模块矩阵：**24 个活跃模块仓库，每仓独立发版（SemVer）、独立 CI、按需取用**。
 从 `errors` / `timex` 这类零依赖微包，到 Hertz / Kitex 生态适配器，全部遵循同一套接口分层与开发规范。
@@ -65,6 +65,13 @@ go get github.com/oekit/logx github.com/oekit/redisx
 # 或：一次拉齐一组经矩阵 CI 验证的兼容版本（BOM 快照，本仓即该模块）
 go get github.com/oekit/oekit@latest
 ```
+
+> **Go 版本**：本仓（BOM 快照）要求 **Go ≥ 1.26.0**——`go get github.com/oekit/oekit@latest`
+> 会把下游 go.mod 的 `go` 指令抬到 1.26.0（实测：`go: upgraded go 1.24 => 1.26.0`）。
+> 只按需取单个模块则不受此限：轻量模块（pkg / logx / core / concurrency / registry /
+> timertask / workflow 等）要求 Go ≥ 1.24，框架生态那几个
+> （hertz / kitex / httpx / middleware / tracing / k8s / etcdx / network / nns-endpoint）
+> 要求 Go ≥ 1.26——**各仓的 `go.mod` 是唯一权威**，本 badge 只描述伞仓自身。
 
 ## 兼容矩阵快照（BOM 模块）
 
