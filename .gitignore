@@ -1,0 +1,9 @@
+# 本仓的 go.mod 是**无 import 的地板**（32 个发版单元的兼容版本快照），
+# 由 matrix-tools/scripts/gen_matrix_go.py 生成；`go mod tidy` 会把没有
+# import 的 require 全部清空——所以本仓**不跑 tidy**。
+#
+# go.sum 同理不入库：它的哈希来自 sum.golang.org 的**已登记**校验和，
+# `go mod download` 在写入新条目时就会与 sumdb 对账——若某个 tag 被重打
+# （校验和与 sumdb 不一致），下载会直接失败，CI 变红。
+# 入库反而会制造陈旧风险：每次改地板都要重生成 go.sum，漏一次就红。
+/go.sum
