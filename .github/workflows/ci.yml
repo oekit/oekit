@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+    tags: ['v*']
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  # 伞仓（BOM）**故意不用**共享的 oekit/.github go-ci.yml：那个 workflow 带
+  # 「Check go mod tidy」门禁，而本仓的 require 是**无 import 的地板**
+  # （32 个发版单元的兼容版本快照），tidy 会把它们全部清掉。
+  # 本 workflow 因此只做三件本仓真正需要的事：
+  #   ① 生成的 matrix.go 能编译（它是机读版本快照，坏了消费方就读不到版本）；
+  #   ② 32 个地板**真的存在于 proxy 且校验和完整**（tag 被删/被重打会红）；
+  #   ③ go.mod 不会被任何工具悄悄改掉（tidy 清空地板的护栏）。
+  bom:
+    name: BOM build & floors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26'
+      - name: Build & vet
+        run: |
+          GOWORK=off go build ./...
+          GOWORK=off go vet ./...
+      - name: 32 个地板全部可取 + 校验和完整
+        # go mod download 只拉本仓 require 的 31 个 oekit 模块（伞仓不能 require
+        # 自己）——它们各自的三方依赖被 Go 1.17+ 的模块图裁剪剪掉了（伞仓不
+        # import 任何包），所以这一步既验证「地板都在」又不会把整个生态拖进 CI。
+        #
+        # 顺带守住 sum.golang.org：写 go.sum 新条目时要与 sumdb 对账，若某个 tag
+        # 被重打（校验和与 sumdb 不一致）下载会直接失败——2026-10-19 的
+        # v0.5.2 tag 校验和事故就是这一类，本步会让它变红而不是流到用户。
+        run: |
+          GOWORK=off go mod download
+          GOWORK=off go mod verify
+          # 模块图里的 oekit 模块 = 31 个地板 + 伞仓自身 = 32 个发版单元
+          n=$(GOWORK=off go list -m all | grep -c '^github.com/oekit/' || true)
+          echo "模块图里的 oekit 模块：$n"
+          if [ "$n" -ne 32 ]; then
+            echo "::error::模块图里应有 32 个 oekit 模块（31 个地板 + 伞仓自身 = 24 根 + 7 嵌套 + 1 伞仓），实际 $n"
+            exit 1
+          fi
+      - name: go.mod 不得被改动
+        # 护栏：本仓的 require 是无 import 的地板，任何 tidy/工具改写都会清空
+        # 它们——正确做法是重跑 matrix-tools/scripts/gen_matrix_go.py。
+        run: |
+          if ! git diff --exit-code -- go.mod; then
+            echo "::error::go.mod 被改动了——本仓的 require 是无 import 的地板，tidy 会清掉；正确做法是重跑 matrix-tools/scripts/gen_matrix_go.py"
+            git diff -- go.mod
+            exit 1
+          fi
+      - name: 地板数量护栏
+        # 31 = 24 根 + 7 嵌套（伞仓不能 require 自己，故 32 个发版单元里
+        # 伞仓自身不在 go.mod 里）。少一个说明生成器或登记表出问题了。
+        run: |
+          n=$(grep -cE '^\s+github\.com/oekit/' go.mod || true)
+          echo "go.mod 里的 oekit 地板：$n"
+          if [ "$n" -ne 31 ]; then
+            echo "::error::地板数量应为 31（24 根 + 7 嵌套；伞仓自身不在自己的 require 里），实际 $n"
+            exit 1
+          fi
