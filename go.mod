@@ -17,7 +17,7 @@ require (
 	github.com/oekit/k8s v0.1.3
 	github.com/oekit/kitex v0.6.3
 	github.com/oekit/kitex-examples v0.1.19
-	github.com/oekit/kitx v0.2.1
+	github.com/oekit/kitx v0.3.0
 	github.com/oekit/logx v0.7.1
 	github.com/oekit/logx/hertzlog v0.1.0
 	github.com/oekit/logx/hlog v0.1.3
