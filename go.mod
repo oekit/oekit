@@ -15,13 +15,13 @@ require (
 	github.com/oekit/hertz v0.8.0
 	github.com/oekit/httpx v0.8.2
 	github.com/oekit/k8s v0.1.3
-	github.com/oekit/kitex v0.6.3
+	github.com/oekit/kitex v0.6.4
 	github.com/oekit/kitex-examples v0.1.19
 	github.com/oekit/kitx v0.3.0
 	github.com/oekit/logx v0.7.1
 	github.com/oekit/logx/hertzlog v0.1.0
-	github.com/oekit/logx/hlog v0.1.3
-	github.com/oekit/logx/kitexlog v0.1.3
+	github.com/oekit/logx/hlog v0.1.4
+	github.com/oekit/logx/kitexlog v0.1.4
 	github.com/oekit/logx/sink v0.1.0
 	github.com/oekit/metrics v0.1.9
 	github.com/oekit/middleware v0.13.0
