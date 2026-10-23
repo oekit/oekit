@@ -7,7 +7,7 @@ require (
 	github.com/oekit/bootstrap v0.6.4
 	github.com/oekit/bootstrap/nacos v0.3.5
 	github.com/oekit/bootstrap/obs v0.2.9
-	github.com/oekit/concurrency v0.20.1
+	github.com/oekit/concurrency v0.20.2
 	github.com/oekit/core v0.12.0
 	github.com/oekit/data v0.17.0
 	github.com/oekit/etcdx v0.1.6
@@ -17,7 +17,7 @@ require (
 	github.com/oekit/k8s v0.1.3
 	github.com/oekit/kitex v0.6.5
 	github.com/oekit/kitex-examples v0.1.20
-	github.com/oekit/kitx v0.3.0
+	github.com/oekit/kitx v0.3.1
 	github.com/oekit/logx v0.7.1
 	github.com/oekit/logx/hertzlog v0.1.0
 	github.com/oekit/logx/hlog v0.1.4
