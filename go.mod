@@ -5,8 +5,8 @@ go 1.26.0
 // ---- oekit BOM：矩阵兼容快照的地板 require（勿手改/勿 tidy，见 README）----
 require (
 	github.com/oekit/bootstrap v0.6.5
-	github.com/oekit/bootstrap/nacos v0.3.6
-	github.com/oekit/bootstrap/obs v0.2.9
+	github.com/oekit/bootstrap/nacos v0.3.7
+	github.com/oekit/bootstrap/obs v0.2.10
 	github.com/oekit/concurrency v0.20.4
 	github.com/oekit/core v0.12.0
 	github.com/oekit/data v0.18.0
