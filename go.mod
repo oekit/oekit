@@ -28,8 +28,8 @@ require (
 	github.com/oekit/network v0.5.6
 	github.com/oekit/nns v0.4.4
 	github.com/oekit/nns-endpoint v0.2.6
-	github.com/oekit/pkg v0.22.1
-	github.com/oekit/redisx v0.10.3
+	github.com/oekit/pkg v0.23.0
+	github.com/oekit/redisx v0.10.4
 	github.com/oekit/registry v0.5.0
 	github.com/oekit/registry/nacos v0.1.0
 	github.com/oekit/registry/nacosimpl v0.1.0
