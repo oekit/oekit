@@ -10,11 +10,11 @@ require (
 	github.com/oekit/concurrency v0.20.2
 	github.com/oekit/core v0.12.0
 	github.com/oekit/data v0.17.0
-	github.com/oekit/etcdx v0.1.6
+	github.com/oekit/etcdx v0.1.7
 	github.com/oekit/gormx v0.6.1
 	github.com/oekit/hertz v0.8.1
 	github.com/oekit/httpx v0.8.2
-	github.com/oekit/k8s v0.1.3
+	github.com/oekit/k8s v0.1.4
 	github.com/oekit/kitex v0.6.5
 	github.com/oekit/kitex-examples v0.1.20
 	github.com/oekit/kitx v0.3.1
