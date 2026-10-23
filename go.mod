@@ -15,7 +15,7 @@ require (
 	github.com/oekit/hertz v0.8.1
 	github.com/oekit/httpx v0.8.2
 	github.com/oekit/k8s v0.1.4
-	github.com/oekit/kitex v0.6.5
+	github.com/oekit/kitex v0.6.6
 	github.com/oekit/kitex-examples v0.1.20
 	github.com/oekit/kitx v0.3.1
 	github.com/oekit/logx v0.7.1
@@ -24,12 +24,12 @@ require (
 	github.com/oekit/logx/kitexlog v0.1.4
 	github.com/oekit/logx/sink v0.1.0
 	github.com/oekit/metrics v0.1.9
-	github.com/oekit/middleware v0.13.1
-	github.com/oekit/network v0.5.5
+	github.com/oekit/middleware v0.13.2
+	github.com/oekit/network v0.5.6
 	github.com/oekit/nns v0.4.4
 	github.com/oekit/nns-endpoint v0.2.6
 	github.com/oekit/pkg v0.22.0
-	github.com/oekit/redisx v0.10.0
+	github.com/oekit/redisx v0.10.1
 	github.com/oekit/registry v0.5.0
 	github.com/oekit/registry/nacos v0.1.0
 	github.com/oekit/registry/nacosimpl v0.1.0
