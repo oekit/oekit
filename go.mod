@@ -16,7 +16,7 @@ require (
 	github.com/oekit/httpx v0.8.2
 	github.com/oekit/k8s v0.1.4
 	github.com/oekit/kitex v0.7.0
-	github.com/oekit/kitex-examples v0.1.20
+	github.com/oekit/kitex-examples v0.1.21
 	github.com/oekit/kitex/istio v0.1.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.1.0
 	github.com/oekit/kitx v0.3.1
