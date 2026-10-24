@@ -13,10 +13,10 @@ permissions:
 jobs:
   # 伞仓（BOM）**故意不用**共享的 oekit/.github go-ci.yml：那个 workflow 带
   # 「Check go mod tidy」门禁，而本仓的 require 是**无 import 的地板**
-  # （34 个发版单元的兼容版本快照），tidy 会把它们全部清掉。
+  # （36 个发版单元的兼容版本快照），tidy 会把它们全部清掉。
   # 本 workflow 因此只做三件本仓真正需要的事：
   #   ① 生成的 matrix.go 能编译（它是机读版本快照，坏了消费方就读不到版本）；
-  #   ② 32 个地板**真的存在于 proxy 且校验和完整**（tag 被删/被重打会红）；
+  #   ② 35 个地板**真的存在于 proxy 且校验和完整**（tag 被删/被重打会红）；
   #   ③ go.mod 不会被任何工具悄悄改掉（tidy 清空地板的护栏）。
   bom:
     name: BOM build & floors
@@ -30,8 +30,8 @@ jobs:
         run: |
           GOWORK=off go build ./...
           GOWORK=off go vet ./...
-      - name: 32 个地板全部可取 + 校验和完整
-        # go mod download 只拉本仓 require 的 33 个 oekit 模块（伞仓不能 require
+      - name: 35 个地板全部可取 + 校验和完整
+        # go mod download 只拉本仓 require 的 35 个 oekit 模块（伞仓不能 require
         # 自己）——它们各自的三方依赖被 Go 1.17+ 的模块图裁剪剪掉了（伞仓不
         # import 任何包），所以这一步既验证「地板都在」又不会把整个生态拖进 CI。
         #
@@ -41,11 +41,11 @@ jobs:
         run: |
           GOWORK=off go mod download
           GOWORK=off go mod verify
-          # 模块图里的 oekit 模块 = 33 个地板 + 伞仓自身 = 34 个发版单元
+          # 模块图里的 oekit 模块 = 35 个地板 + 伞仓自身 = 36 个发版单元
           n=$(GOWORK=off go list -m all | grep -c '^github.com/oekit/' || true)
           echo "模块图里的 oekit 模块：$n"
-          if [ "$n" -ne 34 ]; then
-            echo "::error::模块图里应有 34 个 oekit 模块（33 个地板 + 伞仓自身 = 24 根 + 9 嵌套 + 1 伞仓），实际 $n"
+          if [ "$n" -ne 36 ]; then
+            echo "::error::模块图里应有 36 个 oekit 模块（35 个地板 + 伞仓自身 = 24 根 + 11 嵌套 + 1 伞仓），实际 $n"
             exit 1
           fi
       - name: go.mod 不得被改动
@@ -58,12 +58,12 @@ jobs:
             exit 1
           fi
       - name: 地板数量护栏
-        # 33 = 24 根 + 9 嵌套（伞仓不能 require 自己，故 34 个发版单元里
+        # 35 = 24 根 + 11 嵌套（伞仓不能 require 自己，故 36 个发版单元里
         # 伞仓自身不在 go.mod 里）。少一个说明生成器或登记表出问题了。
         run: |
           n=$(grep -cE '^\s+github\.com/oekit/' go.mod || true)
           echo "go.mod 里的 oekit 地板：$n"
-          if [ "$n" -ne 33 ]; then
-            echo "::error::地板数量应为 33（24 根 + 9 嵌套；伞仓自身不在自己的 require 里），实际 $n"
+          if [ "$n" -ne 35 ]; then
+            echo "::error::地板数量应为 35（24 根 + 11 嵌套；伞仓自身不在自己的 require 里），实际 $n"
             exit 1
           fi
