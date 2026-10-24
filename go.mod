@@ -12,11 +12,13 @@ require (
 	github.com/oekit/data v0.18.0
 	github.com/oekit/etcdx v0.1.7
 	github.com/oekit/gormx v0.6.1
-	github.com/oekit/hertz v0.8.2
+	github.com/oekit/hertz v0.8.3
 	github.com/oekit/httpx v0.8.2
 	github.com/oekit/k8s v0.1.4
-	github.com/oekit/kitex v0.6.6
+	github.com/oekit/kitex v0.7.0
 	github.com/oekit/kitex-examples v0.1.20
+	github.com/oekit/kitex/istio v0.1.0
+	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.1.0
 	github.com/oekit/kitx v0.3.1
 	github.com/oekit/logx v0.7.1
 	github.com/oekit/logx/hertzlog v0.1.0
