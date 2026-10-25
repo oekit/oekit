@@ -18,6 +18,7 @@ require (
 	github.com/oekit/kitex v0.7.0
 	github.com/oekit/kitex-examples v0.1.21
 	github.com/oekit/kitex/istio v0.7.0
+	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.0
 	github.com/oekit/kitx v0.3.1
 	github.com/oekit/logx v0.7.1
 	github.com/oekit/logx/hertzlog v0.1.0
