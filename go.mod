@@ -7,7 +7,7 @@ require (
 	github.com/oekit/bootstrap v0.6.5
 	github.com/oekit/bootstrap/nacos v0.3.7
 	github.com/oekit/bootstrap/obs v0.2.10
-	github.com/oekit/concurrency v0.20.4
+	github.com/oekit/concurrency v0.21.0
 	github.com/oekit/core v0.12.0
 	github.com/oekit/data v0.19.0
 	github.com/oekit/etcdx v0.1.7
@@ -30,7 +30,7 @@ require (
 	github.com/oekit/network v0.5.6
 	github.com/oekit/nns v0.4.4
 	github.com/oekit/nns-endpoint v0.2.6
-	github.com/oekit/pkg v0.24.0
+	github.com/oekit/pkg v0.25.1
 	github.com/oekit/redisx v0.10.4
 	github.com/oekit/registry v0.5.0
 	github.com/oekit/registry/nacos v0.1.0
