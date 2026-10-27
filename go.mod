@@ -9,7 +9,7 @@ require (
 	github.com/oekit/bootstrap/obs v0.2.10
 	github.com/oekit/concurrency v0.22.0
 	github.com/oekit/core v0.12.0
-	github.com/oekit/data v0.19.1
+	github.com/oekit/data v0.19.2
 	github.com/oekit/etcdx v0.1.7
 	github.com/oekit/gormx v0.6.2
 	github.com/oekit/hertz v0.8.6
