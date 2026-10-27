@@ -11,7 +11,7 @@ require (
 	github.com/oekit/core v0.12.0
 	github.com/oekit/data v0.19.0
 	github.com/oekit/etcdx v0.1.7
-	github.com/oekit/gormx v0.6.1
+	github.com/oekit/gormx v0.6.2
 	github.com/oekit/hertz v0.8.5
 	github.com/oekit/httpx v0.8.2
 	github.com/oekit/k8s v0.1.4
