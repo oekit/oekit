@@ -22,8 +22,8 @@ require (
 	github.com/oekit/kitx v0.3.3
 	github.com/oekit/logx v0.7.2
 	github.com/oekit/logx/hertzlog v0.1.0
-	github.com/oekit/logx/hlog v0.1.4
-	github.com/oekit/logx/kitexlog v0.1.4
+	github.com/oekit/logx/hlog v0.1.5
+	github.com/oekit/logx/kitexlog v0.1.5
 	github.com/oekit/logx/sink v0.1.0
 	github.com/oekit/metrics v0.1.10
 	github.com/oekit/middleware v0.13.3
