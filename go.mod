@@ -7,18 +7,18 @@ require (
 	github.com/oekit/bootstrap v0.6.5
 	github.com/oekit/bootstrap/nacos v0.3.7
 	github.com/oekit/bootstrap/obs v0.2.10
-	github.com/oekit/concurrency v0.23.1
+	github.com/oekit/concurrency v0.23.2
 	github.com/oekit/core v0.12.1
-	github.com/oekit/data v0.19.5
+	github.com/oekit/data v0.19.6
 	github.com/oekit/etcdx v0.2.2
 	github.com/oekit/gormx v0.6.4
-	github.com/oekit/hertz v0.8.6
+	github.com/oekit/hertz v0.8.7
 	github.com/oekit/httpx v0.8.4
 	github.com/oekit/k8s v0.1.4
-	github.com/oekit/kitex v0.7.1
+	github.com/oekit/kitex v0.7.2
 	github.com/oekit/kitex-examples v0.1.21
 	github.com/oekit/kitex/istio v0.7.0
-	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.0
+	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.2
 	github.com/oekit/kitx v0.3.3
 	github.com/oekit/logx v0.8.0
 	github.com/oekit/logx/hertzlog v0.1.0
@@ -27,16 +27,16 @@ require (
 	github.com/oekit/logx/sink v0.1.0
 	github.com/oekit/metrics v0.1.10
 	github.com/oekit/middleware v0.13.3
-	github.com/oekit/network v0.7.1
-	github.com/oekit/nns v0.5.3
+	github.com/oekit/network v0.7.2
+	github.com/oekit/nns v0.5.4
 	github.com/oekit/nns-endpoint v0.2.6
 	github.com/oekit/pkg v0.31.0
-	github.com/oekit/redisx v0.10.7
+	github.com/oekit/redisx v0.10.8
 	github.com/oekit/registry v0.5.1
 	github.com/oekit/registry/nacos v0.1.0
 	github.com/oekit/registry/nacosimpl v0.1.1
-	github.com/oekit/timertask v0.2.4
-	github.com/oekit/timertask/redis v0.2.4
+	github.com/oekit/timertask v0.2.5
+	github.com/oekit/timertask/redis v0.2.5
 	github.com/oekit/tracing v0.3.1
-	github.com/oekit/workflow v0.3.2
+	github.com/oekit/workflow v0.3.3
 )
