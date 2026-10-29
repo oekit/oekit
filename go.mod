@@ -37,6 +37,6 @@ require (
 	github.com/oekit/registry/nacosimpl v0.1.1
 	github.com/oekit/timertask v0.2.5
 	github.com/oekit/timertask/redis v0.2.5
-	github.com/oekit/tracing v0.3.1
+	github.com/oekit/tracing v0.3.2
 	github.com/oekit/workflow v0.3.3
 )
