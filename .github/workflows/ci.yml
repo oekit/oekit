@@ -90,15 +90,21 @@ jobs:
       # **不自写一套判据**：退出码契约由生产方定义——0=一致 / 1=真漂移 / 2=读不到
       # 远端 tag（判不了 ≠ 通过，矩阵-tools#79）。
       #
-      # 为什么单独 checkout matrix-tools 到 **../matrix-tools**（而不是默认路径）：
+      # 为什么单独 checkout matrix-tools 到 `matrix-tools/`（而不是默认路径）：
       # ① 判据脚本住在治理仓（matrix-tools），本仓只有 BOM 产物；
       # ② 默认路径 = workspace = 本仓的检出 ⇒ 会把本仓的检出覆盖掉；
-      # ③ BASE 口径要求「BASE/oekit = 本仓」，本仓必须在 BASE 之外。
+      # ③ **不能用 `../matrix-tools`**：actions/checkout 会校验目标路径必须在
+      #    workspace 之内，实测直接报
+      #    `Repository path '/home/runner/work/oekit/matrix-tools' is not under
+      #    '/home/runner/work/oekit/oekit'`（2026-11-01 实测）⇒ 只能放在仓内子目录。
+      #
+      # 子目录里放的是 .py 仓（matrix-tools 无 Go 文件）⇒ 不影响本仓的
+      # `go build ./...` / `go vet ./...` / `go list -m all`。
       - uses: actions/checkout@v7
         with:
           repository: oekit/matrix-tools
           ref: main
-          path: ../matrix-tools
+          path: matrix-tools
       - name: 准备判据现场（克隆矩阵模块 + 把本仓接到 BASE/oekit）
         # 判据要读两样事实：
         #   ① 各仓**远端最新 tag**（走 HTTPS，不需要 clone）；
@@ -109,7 +115,7 @@ jobs:
           set -euo pipefail
           BASE="$RUNNER_TEMP/bom-base"
           mkdir -p "$BASE"
-          MODS=$(cd ../matrix-tools && python3 -c "import matrix; print(' '.join(matrix.MODULES))")
+          MODS=$(cd matrix-tools && python3 -c "import matrix; print(' '.join(matrix.MODULES))")
           echo "克隆模块仓：$MODS"
           for m in $MODS; do
             git clone --quiet "https://github.com/oekit/$m.git" "$BASE/$m"
@@ -117,7 +123,7 @@ jobs:
           # BASE/oekit 指向**本仓的检出**（PR 上要判的是这次改动的产物，
           # 不是远端 main 的产物）⇒ 用符号链接，不重新 clone。
           ln -s "$GITHUB_WORKSPACE" "$BASE/oekit"
-          echo "BASE=$BASE（BASE/oekit → 本仓检出）"
+          echo "BASE=${BASE}（BASE/oekit → 本仓检出）"
       - name: 判据自证——故意陈旧的 BOM 必须被判红（否则这道门禁没有牙齿）
         # 自证必须**先于**主判定跑：主判定红的时候，正是最需要自证的时候。
         # 若把自证放在判定之后，红了就永远执行不到 ⇒ 「自证全绿」只说明
@@ -150,18 +156,18 @@ jobs:
             ln -s "${d%/}" "$PROOF/$m"
           done
           set +e
-          MATRIX_BASE="$PROOF" python3 ../matrix-tools/scripts/gen_matrix_go.py --check
+          MATRIX_BASE="$PROOF" python3 matrix-tools/scripts/gen_matrix_go.py --check
           rc=$?
           set -e
           if [ "$rc" -ne 1 ]; then
-            echo "::error::判据自证失败：故意陈旧的 BOM 未被判红（期望退出码 1=真漂移，实际 $rc）——这道门禁没有牙齿，先修判据再谈门禁"
+            echo "::error::判据自证失败：故意陈旧的 BOM 未被判红（期望退出码 1=真漂移，实际 ${rc}）——这道门禁没有牙齿，先修判据再谈门禁"
             exit 1
           fi
           echo "✓ 判据自证通过：故意陈旧的 BOM 被判红（退出码 1）"
       - name: BOM 新鲜度（快照 vs 各仓远端最新 tag）
         run: |
           set -uo pipefail
-          MATRIX_BASE="$RUNNER_TEMP/bom-base" python3 ../matrix-tools/scripts/gen_matrix_go.py --check
+          MATRIX_BASE="$RUNNER_TEMP/bom-base" python3 matrix-tools/scripts/gen_matrix_go.py --check
           rc=$?
           if [ "$rc" -eq 2 ]; then
             echo "::error::读不到远端 tag ⇒ 无法核对 BOM 新鲜度（判不了 ≠ 通过）——先修好网络/凭证再重试"
