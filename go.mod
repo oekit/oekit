@@ -11,9 +11,9 @@ require (
 	github.com/oekit/core v0.12.1
 	github.com/oekit/data v0.19.6
 	github.com/oekit/etcdx v0.2.2
-	github.com/oekit/gormx v0.6.4
+	github.com/oekit/gormx v0.6.5
 	github.com/oekit/hertz v0.8.8
-	github.com/oekit/httpx v0.8.5
+	github.com/oekit/httpx v0.8.7
 	github.com/oekit/k8s v0.1.4
 	github.com/oekit/kitex v0.7.2
 	github.com/oekit/kitex-examples v0.1.22
@@ -28,7 +28,7 @@ require (
 	github.com/oekit/metrics v0.1.10
 	github.com/oekit/middleware v0.13.5
 	github.com/oekit/network v0.7.3
-	github.com/oekit/nns v0.5.4
+	github.com/oekit/nns v0.5.5
 	github.com/oekit/nns-endpoint v0.2.6
 	github.com/oekit/pkg v0.31.0
 	github.com/oekit/redisx v0.10.8
