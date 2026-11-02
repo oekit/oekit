@@ -20,7 +20,7 @@ require (
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.5
 	github.com/oekit/kitx v0.3.4
-	github.com/oekit/logx v0.8.0
+	github.com/oekit/logx v0.8.1
 	github.com/oekit/logx/hertzlog v0.1.0
 	github.com/oekit/logx/hlog v0.1.6
 	github.com/oekit/logx/kitexlog v0.1.6
