@@ -32,9 +32,9 @@ require (
 	github.com/oekit/nns-endpoint v0.2.10
 	github.com/oekit/pkg v0.31.2
 	github.com/oekit/redisx v0.10.9
-	github.com/oekit/registry v0.5.1
-	github.com/oekit/registry/nacos v0.1.0
-	github.com/oekit/registry/nacosimpl v0.1.1
+	github.com/oekit/registry v0.5.2
+	github.com/oekit/registry/nacos v0.1.1
+	github.com/oekit/registry/nacosimpl v0.1.2
 	github.com/oekit/timertask v0.2.6
 	github.com/oekit/timertask/redis v0.2.6
 	github.com/oekit/tracing v0.3.2
