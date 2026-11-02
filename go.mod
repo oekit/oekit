@@ -30,7 +30,7 @@ require (
 	github.com/oekit/network v0.7.5
 	github.com/oekit/nns v0.5.6
 	github.com/oekit/nns-endpoint v0.2.10
-	github.com/oekit/pkg v0.31.1
+	github.com/oekit/pkg v0.31.2
 	github.com/oekit/redisx v0.10.9
 	github.com/oekit/registry v0.5.1
 	github.com/oekit/registry/nacos v0.1.0
