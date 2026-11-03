@@ -15,7 +15,7 @@ require (
 	github.com/oekit/hertz v0.8.13
 	github.com/oekit/httpx v0.8.8
 	github.com/oekit/k8s v0.1.4
-	github.com/oekit/kitex v0.7.5
+	github.com/oekit/kitex v0.7.6
 	github.com/oekit/kitex-examples v0.1.26
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.7
