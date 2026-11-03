@@ -76,8 +76,16 @@ go get github.com/oekit/oekit@latest
 ## 兼容矩阵快照（BOM 模块）
 
 各模块独立 SemVer，数字本身不带兼容信息——**「这些模块当前互相兼容」**由本仓声明：
-`matrix.go` 记录全部模块（含 `logx/hlog` 等嵌套模块）的版本快照（`Matrix` / `Versions` /
-`VersionOf`），`go.mod` 以 require 地板钉住同一组版本。`go get github.com/oekit/oekit@latest`
+`matrix.go` 记录全部模块（含 `logx/hlog` 等嵌套模块）的版本快照（`Matrix()` / `Versions()` /
+`VersionOf`），并声明**每个模块自己的破坏性变更**（`BreakingOf` / `HasBreaking` /
+`BreakingModules`）——矩阵里有 108 条 breaking 记录，v0.2.0 起随快照一起发布，
+消费方不必再翻站点就知道这组版本里哪些模块会断。
+`go.mod` 以 require 地板钉住同一组版本。
+
+> **v0.2.0 起 `Matrix` / `Versions` 是函数而非变量**（返回副本）：旧写法
+> `oekit.Versions[...]` / `len(oekit.Matrix)` 会编译不过，改为 `oekit.Versions()[...]` /
+> `len(oekit.Matrix())`。原因是旧的导出可变 map 无锁读取，实测并发下 `go run -race` 报
+> DATA RACE，并可能触发不可 recover 的 `fatal error: concurrent map read and map write`。`go get github.com/oekit/oekit@latest`
 会把下游已用的 oekit 模块统一抬到快照口径（MVS 地板），不会静默落到互不兼容的旧组合；
 不需要整组对齐就按需 `go get` 各模块，本包零强制。
 
