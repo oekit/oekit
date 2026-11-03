@@ -28,7 +28,7 @@ require (
 	github.com/oekit/metrics v0.1.10
 	github.com/oekit/middleware v0.13.8
 	github.com/oekit/network v0.7.5
-	github.com/oekit/nns v0.5.6
+	github.com/oekit/nns v0.5.7
 	github.com/oekit/nns-endpoint v0.2.10
 	github.com/oekit/pkg v0.33.0
 	github.com/oekit/redisx v0.11.0
