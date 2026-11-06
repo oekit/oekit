@@ -12,7 +12,7 @@ require (
 	github.com/oekit/data v0.20.2
 	github.com/oekit/etcdx v0.2.5
 	github.com/oekit/gormx v0.11.2
-	github.com/oekit/hertz v0.9.6
+	github.com/oekit/hertz v0.10.0
 	github.com/oekit/httpx v0.8.11
 	github.com/oekit/k8s v0.1.7
 	github.com/oekit/kitex v0.7.10
