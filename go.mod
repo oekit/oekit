@@ -7,7 +7,7 @@ require (
 	github.com/oekit/bootstrap v0.6.14
 	github.com/oekit/bootstrap/nacos v0.3.17
 	github.com/oekit/bootstrap/obs v0.2.19
-	github.com/oekit/concurrency v0.26.0
+	github.com/oekit/concurrency v0.27.0
 	github.com/oekit/core v0.12.2
 	github.com/oekit/data v0.20.2
 	github.com/oekit/etcdx v0.2.5
