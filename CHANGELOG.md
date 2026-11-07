@@ -3,6 +3,34 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.2.7] — 2026-11-08
+
+- **新增发版单元**：kitex/cmd/thrift2openapi v0.1.0
+- **依赖地板变更**（30 个模块）：bootstrap v0.6.14 → v0.6.15；bootstrap/nacos v0.3.17 → v0.3.19；bootstrap/obs v0.2.19 → v0.2.21；concurrency v0.27.0 → v0.28.3；core v0.13.0 → v0.13.2；data v0.20.2 → v0.20.4；etcdx v0.2.5 → v0.2.6；gormx v0.11.2 → v0.11.5；hertz v0.10.0 → v0.10.3；httpx v0.8.11 → v0.8.14；k8s v0.1.7 → v0.1.9；kitex v0.7.10 → v0.7.13；kitex-examples v0.1.26 → v0.1.27；kitex/observability/tracing/instrumentation/kitexotel v0.7.11 → v0.7.13；kitx v0.4.1 → v0.4.2；logx v0.8.4 → v0.8.8；metrics v0.1.13 → v0.1.14；middleware v0.13.12 → v0.13.14；network v0.7.9 → v0.7.11；nns v0.5.9 → v0.5.10；nns-endpoint v0.2.13 → v0.2.14；pkg v0.35.2 → v0.37.3；redisx v0.11.1 → v0.11.3；registry v0.5.4 → v0.5.5；registry/nacos v0.1.7 → v0.1.9；registry/nacosimpl v0.1.7 → v0.1.9；timertask v0.2.11 → v0.2.12；timertask/redis v0.2.13 → v0.2.15；tracing v0.3.4 → v0.3.5；workflow v0.3.7 → v0.3.8
+
+## [v0.2.6] — 2026-11-07
+
+- **依赖地板变更**（1 个模块）：pkg v0.35.1 → v0.35.2
+
+## [v0.2.5] — 2026-11-07
+
+- **依赖地板变更**（1 个模块）：hertz v0.9.6 → v0.10.0
+
+## [v0.2.4] — 2026-11-07
+
+- **依赖地板变更**（1 个模块）：core v0.12.2 → v0.13.0
+
+## [v0.2.3] — 2026-11-07
+
+- **依赖地板变更**（31 个模块）：bootstrap v0.6.8 → v0.6.14；bootstrap/nacos v0.3.10 → v0.3.17；bootstrap/obs v0.2.14 → v0.2.19；concurrency v0.23.4 → v0.27.0；core v0.12.1 → v0.12.2；data v0.20.0 → v0.20.2；etcdx v0.2.3 → v0.2.5；gormx v0.8.0 → v0.11.2；hertz v0.9.1 → v0.9.6；httpx v0.8.8 → v0.8.11；k8s v0.1.4 → v0.1.7；kitex v0.7.6 → v0.7.10；kitex/observability/tracing/instrumentation/kitexotel v0.7.7 → v0.7.11；kitx v0.3.4 → v0.4.1；logx v0.8.2 → v0.8.4；logx/hlog v0.1.8 → v0.1.9；logx/kitexlog v0.1.8 → v0.1.9；metrics v0.1.11 → v0.1.13；middleware v0.13.8 → v0.13.12；network v0.7.5 → v0.7.9；nns v0.5.7 → v0.5.9；nns-endpoint v0.2.10 → v0.2.13；pkg v0.33.0 → v0.35.1；redisx v0.11.0 → v0.11.1；registry v0.5.3 → v0.5.4；registry/nacos v0.1.3 → v0.1.7；registry/nacosimpl v0.1.4 → v0.1.7；timertask v0.2.7 → v0.2.11；timertask/redis v0.2.7 → v0.2.13；tracing v0.3.2 → v0.3.4；workflow v0.3.4 → v0.3.7
+
+## [v0.2.2] — 2026-11-04
+
+- **依赖地板变更**（2 个模块）：data v0.19.9 → v0.20.0；hertz v0.9.0 → v0.9.1
+
+## [v0.2.1] — 2026-11-04
+
+- **依赖地板变更**（1 个模块）：gormx v0.7.1 → v0.8.0
 ## [v0.2.0] — 2026-11-03
 - **BOM 快照带 breaking 索引**（BREAKING）：从「只钉版本」升级为「钉版本 + 声明每个模块自己的破坏性变更」
 
