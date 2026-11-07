@@ -40,8 +40,8 @@ jobs:
         run: |
           GOWORK=off go build ./...
           GOWORK=off go vet ./...
-      - name: 35 个地板全部可取 + 校验和完整
-        # go mod download 只拉本仓 require 的 35 个 oekit 模块（伞仓不能 require
+      - name: 全部地板可取 + 校验和完整
+        # go mod download 只拉本仓 require 的 oekit 模块（伞仓不能 require
         # 自己）——它们各自的三方依赖被 Go 1.17+ 的模块图裁剪剪掉了（伞仓不
         # import 任何包），所以这一步既验证「地板都在」又不会把整个生态拖进 CI。
         #
@@ -51,11 +51,16 @@ jobs:
         run: |
           GOWORK=off go mod download
           GOWORK=off go mod verify
-          # 模块图里的 oekit 模块 = 35 个地板 + 伞仓自身 = 36 个发版单元
+          # 期望值**从 matrix.go 的登记表推导**（不再硬编码数字）——
+          # 硬编码会在新增嵌套模块时立刻腐烂：kitex/cmd/thrift2openapi 加入后
+          # 实际 37 而期望仍写 36 ⇒ main 恒红 ⇒ 本仓所有 PR 合不进去。
+          # matrix.go 是 BOM 自身的登记表（gen_matrix_go.py 的产物），
+          # 它的 module 条目数 = 地板数（伞仓自身不在 go.mod 里）。
+          expect=$(grep -cE '^	{Path: "github.com/oekit/' matrix.go || true)
           n=$(GOWORK=off go list -m all | grep -c '^github.com/oekit/' || true)
-          echo "模块图里的 oekit 模块：$n"
-          if [ "$n" -ne 36 ]; then
-            echo "::error::模块图里应有 36 个 oekit 模块（35 个地板 + 伞仓自身 = 24 根 + 11 嵌套 + 1 伞仓），实际 $n"
+          echo "模块图里的 oekit 模块：$n（登记表推导的期望值：$expect 个地板 + 伞仓自身 = $((expect + 1))）"
+          if [ "$n" -ne $((expect + 1)) ]; then
+            echo "::error::模块图里的 oekit 模块数应为 $((expect + 1))（= matrix.go 登记的 $expect 个地板 + 伞仓自身），实际 $n"
             exit 1
           fi
       - name: go.mod 不得被改动
@@ -68,13 +73,14 @@ jobs:
             exit 1
           fi
       - name: 地板数量护栏
-        # 35 = 24 根 + 11 嵌套（伞仓不能 require 自己，故 36 个发版单元里
-        # 伞仓自身不在 go.mod 里）。少一个说明生成器或登记表出问题了。
+        # 期望值同样**从 matrix.go 推导**（见上一处的理由）：地板数 = 登记表条目数。
+        # 少一个说明生成器或登记表出问题了。
         run: |
+          expect=$(grep -cE '^	{Path: "github.com/oekit/' matrix.go || true)
           n=$(grep -cE '^\s+github\.com/oekit/' go.mod || true)
-          echo "go.mod 里的 oekit 地板：$n"
-          if [ "$n" -ne 35 ]; then
-            echo "::error::地板数量应为 35（24 根 + 11 嵌套；伞仓自身不在自己的 require 里），实际 $n"
+          echo "go.mod 里的 oekit 地板：$n（登记表推导的期望值：$expect）"
+          if [ "$n" -ne "$expect" ]; then
+            echo "::error::地板数量应为 $expect（= matrix.go 登记的发版单元数；伞仓自身不在自己的 require 里），实际 $n"
             exit 1
           fi
 
