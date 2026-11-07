@@ -7,32 +7,32 @@ require (
 	github.com/oekit/bootstrap v0.6.15
 	github.com/oekit/bootstrap/nacos v0.3.19
 	github.com/oekit/bootstrap/obs v0.2.21
-	github.com/oekit/concurrency v0.28.1
-	github.com/oekit/core v0.13.1
-	github.com/oekit/data v0.20.3
+	github.com/oekit/concurrency v0.28.3
+	github.com/oekit/core v0.13.2
+	github.com/oekit/data v0.20.4
 	github.com/oekit/etcdx v0.2.6
-	github.com/oekit/gormx v0.11.3
-	github.com/oekit/hertz v0.10.2
-	github.com/oekit/httpx v0.8.13
+	github.com/oekit/gormx v0.11.5
+	github.com/oekit/hertz v0.10.3
+	github.com/oekit/httpx v0.8.14
 	github.com/oekit/k8s v0.1.9
-	github.com/oekit/kitex v0.7.12
+	github.com/oekit/kitex v0.7.13
 	github.com/oekit/kitex-examples v0.1.27
 	github.com/oekit/kitex/cmd/thrift2openapi v0.1.0
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.13
 	github.com/oekit/kitx v0.4.2
-	github.com/oekit/logx v0.8.6
+	github.com/oekit/logx v0.8.8
 	github.com/oekit/logx/hertzlog v0.1.0
 	github.com/oekit/logx/hlog v0.1.9
 	github.com/oekit/logx/kitexlog v0.1.9
 	github.com/oekit/logx/sink v0.1.0
 	github.com/oekit/metrics v0.1.14
-	github.com/oekit/middleware v0.13.13
+	github.com/oekit/middleware v0.13.14
 	github.com/oekit/network v0.7.11
 	github.com/oekit/nns v0.5.10
 	github.com/oekit/nns-endpoint v0.2.14
-	github.com/oekit/pkg v0.37.1
-	github.com/oekit/redisx v0.11.2
+	github.com/oekit/pkg v0.37.4
+	github.com/oekit/redisx v0.11.3
 	github.com/oekit/registry v0.5.5
 	github.com/oekit/registry/nacos v0.1.9
 	github.com/oekit/registry/nacosimpl v0.1.9
