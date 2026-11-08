@@ -3,6 +3,10 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.2.11] — 2026-11-08
+
+### chore: BOM 重生成——registry v0.5.9 收口（v0.5.8 干净重发的终态地板）
+
 ## [v0.2.10] — 2026-11-08
 
 ### chore: BOM 重生成——今日发版潮地板收口（pkg v0.38.0 / concurrency v0.29.0 / logx v0.8.11 / core v0.13.4 / gormx v0.11.7 / httpx v0.8.16 / network v0.7.13 / hertz v0.10.5 / middleware v0.13.14 / data v0.20.6 / registry v0.5.8 / metrics v0.1.16 / tracing v0.3.7 等）

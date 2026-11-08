@@ -33,7 +33,7 @@ require (
 	github.com/oekit/nns-endpoint v0.2.15
 	github.com/oekit/pkg v0.38.0
 	github.com/oekit/redisx v0.11.4
-	github.com/oekit/registry v0.5.8
+	github.com/oekit/registry v0.5.9
 	github.com/oekit/registry/nacos v0.1.10
 	github.com/oekit/registry/nacosimpl v0.1.10
 	github.com/oekit/timertask v0.2.13
