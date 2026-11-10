@@ -4,40 +4,40 @@ go 1.26.0
 
 // ---- oekit BOM：矩阵兼容快照的地板 require（勿手改/勿 tidy，见 README）----
 require (
-	github.com/oekit/bootstrap v0.7.3
+	github.com/oekit/bootstrap v0.7.5
 	github.com/oekit/bootstrap/nacos v0.3.22
 	github.com/oekit/bootstrap/obs v0.2.24
-	github.com/oekit/concurrency v0.31.2
-	github.com/oekit/core v0.13.6
-	github.com/oekit/data v0.20.10
-	github.com/oekit/etcdx v0.2.10
-	github.com/oekit/gormx v0.11.9
-	github.com/oekit/hertz v0.11.2
-	github.com/oekit/httpx v0.9.1
-	github.com/oekit/k8s v0.2.1
-	github.com/oekit/kitex v0.7.16
+	github.com/oekit/concurrency v0.32.0
+	github.com/oekit/core v0.14.0
+	github.com/oekit/data v0.20.11
+	github.com/oekit/etcdx v0.2.11
+	github.com/oekit/gormx v0.11.12
+	github.com/oekit/hertz v0.11.4
+	github.com/oekit/httpx v0.9.3
+	github.com/oekit/k8s v0.2.2
+	github.com/oekit/kitex v0.7.18
 	github.com/oekit/kitex-examples v0.1.28
 	github.com/oekit/kitex/cmd/thrift2openapi v0.1.0
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.16
-	github.com/oekit/kitx v0.6.1
-	github.com/oekit/logx v0.9.1
+	github.com/oekit/kitx v0.6.2
+	github.com/oekit/logx v0.9.2
 	github.com/oekit/logx/hertzlog v0.1.1
 	github.com/oekit/logx/hlog v0.1.11
 	github.com/oekit/logx/kitexlog v0.1.11
 	github.com/oekit/logx/sink v0.1.1
-	github.com/oekit/metrics v0.2.2
-	github.com/oekit/middleware v0.15.1
-	github.com/oekit/network v0.8.1
-	github.com/oekit/nns v0.5.16
-	github.com/oekit/nns-endpoint v0.3.2
-	github.com/oekit/pkg v0.41.1
-	github.com/oekit/redisx v0.13.1
-	github.com/oekit/registry v0.5.12
-	github.com/oekit/registry/nacos v0.1.12
-	github.com/oekit/registry/nacosimpl v0.1.13
-	github.com/oekit/timertask v0.3.0
-	github.com/oekit/timertask/redis v0.2.17
+	github.com/oekit/metrics v0.2.3
+	github.com/oekit/middleware v0.16.2
+	github.com/oekit/network v0.9.2
+	github.com/oekit/nns v0.5.17
+	github.com/oekit/nns-endpoint v0.3.3
+	github.com/oekit/pkg v0.42.0
+	github.com/oekit/redisx v0.13.2
+	github.com/oekit/registry v0.5.14
+	github.com/oekit/registry/nacos v0.1.13
+	github.com/oekit/registry/nacosimpl v0.1.14
+	github.com/oekit/timertask v0.3.3
+	github.com/oekit/timertask/redis v0.2.18
 	github.com/oekit/tracing v0.3.10
-	github.com/oekit/workflow v0.3.11
+	github.com/oekit/workflow v0.3.12
 )
