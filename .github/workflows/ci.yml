@@ -109,7 +109,11 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: oekit/matrix-tools
-          ref: main
+          # 临时 pin 到含「幽灵 tag 跳过守卫」的提交（matrix-tools#294/#295/#296
+          # 修复在 PR 中未合、main 无守卫时 tracing:redis/v0.2.19 幽灵 tag（#290）
+          # 会把 gen_matrix_go 卡死（exit 2 → 本 check 恒红）。守卫上 main 后本行
+          # 回归 ref: main（跟进 PR）。
+          ref: fd21ffb239649e508659c65f481c7070810814fd
           path: matrix-tools
       - name: 准备判据现场（克隆矩阵模块 + 把本仓接到 BASE/oekit）
         # 判据要读两样事实：
