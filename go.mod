@@ -32,7 +32,7 @@ require (
 	github.com/oekit/nns v0.6.0
 	github.com/oekit/nns-endpoint v0.3.4
 	github.com/oekit/pkg v0.44.0
-	github.com/oekit/redisx v0.14.0
+	github.com/oekit/redisx v0.14.1
 	github.com/oekit/registry v0.5.14
 	github.com/oekit/registry/nacos v0.1.13
 	github.com/oekit/registry/nacosimpl v0.1.14
