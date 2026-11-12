@@ -3,6 +3,26 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.6.0] — 2026-11-12
+
+### chore: BOM 快照重生成——11-11～11-12 发版潮入快照（36 模块，const Version v0.6.0）
+
+本版重生成兼容快照（`gen_matrix_go.py`，各仓**远端** tag 口径，与站点 versions.json 同源）：
+
+- 根模块：pkg v0.44.0 → **v0.46.0**（v0.45.0 distlock 契约单源 + errors.Errorf 删除、
+  v0.46.0 reflectx 深拷贝单源；子包口径 31 → 33 合 1）、concurrency → v0.34.1、
+  logx → v0.10.0（BaseLogger.Level 改 AtomicLevel，BREAKING）、kitx → v0.9.0（jwt 无 exp
+  缺省拒收，BREAKING）、core → v0.15.0（transport/hertzbridge 单源）、registry → v0.5.15、
+  etcdx → v0.3.1、gormx → v0.11.14、httpx → v0.11.0（删 WithDebug 占位选项，BREAKING）、
+  nns → v0.8.0、timertask → v0.5.1（local.Clock 加 NewTimer，BREAKING）、
+  bootstrap → v0.7.8、workflow → v0.11.1、metrics → v0.3.0、network → v0.10.2、
+  k8s → v0.2.4、tracing → v0.4.1、data → v0.21.1；
+- 嵌套单元：bootstrap/nacos v0.3.24、bootstrap/obs v0.2.26、logx/{hlog,kitexlog} v0.1.12、
+  logx/{sink,hertzlog} v0.1.2、registry/nacos v0.1.14、registry/nacosimpl v0.2.0
+  （删 GetPodIP 纯转发，BREAKING）、timertask/redis v0.2.20；
+- breakingIndex 随 `gen_versions.py` 补收 26 条 CHANGELOG 破坏性变更（pkg/logx/kitx/
+  registry/gormx/redisx/etcdx/httpx/timertask/k8s/nns 等），快照内的 Breaking 明细同步刷新。
+
 ## [v0.2.12] — 2026-11-09
 
 ### chore: BOM 重生成——11-08 并发发版潮地板收口（37 发版单元）
