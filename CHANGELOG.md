@@ -3,6 +3,22 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.6.1] — 2026-11-12
+
+### chore: BOM 快照重生成——11-12 晚间 5 个根模块发版入快照（36 模块，const Version v0.6.1）
+
+本版重生成兼容快照（`gen_matrix_go.py`，各仓**远端** tag 口径，与站点 versions.json 同源）：
+
+- hertz v0.11.4 → **v0.11.5**（全矩阵 issue 清零战役：crudh/handler.go 1109 行同包拆四文件、
+  transportx 收敛 core/transport/hertzbridge 单源薄委托、nns/registry 四段近似块收敛、
+  WithWatchInterval / NewRegistry 构造期 panic fail-fast；Go 1.26 现代化，行为零变更）；
+- middleware v0.17.0 → **v0.18.0**（hertzTransporter 删除、统一消费 hertzbridge 单源（#180）；
+  **BREAKING**（#179）legacySkipResponseWrapHeader 兼容路径到期移除，SkipResponseWrap 只写
+  X-Oekit-No-Wrap；i18n ensureCatalog 锁外发布 + single-flight + 失败退避）；
+- nns-endpoint v0.3.4 → **v0.3.5**（Go 1.26 现代化清扫 + 地板对齐，行为零变更）；
+- tracing v0.4.1 → **v0.4.2**（gormotel 导出签名 interface{}→any、并发测试 fan-out，行为零变更）；
+- kitex-examples v0.1.28 → **v0.1.29**（矩阵依赖地板对齐）。
+
 ## [v0.6.0] — 2026-11-12
 
 ### chore: BOM 快照重生成——11-11～11-12 发版潮入快照（36 模块，const Version v0.6.0）
