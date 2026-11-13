@@ -4,7 +4,7 @@ go 1.26.0
 
 // ---- oekit BOM：矩阵兼容快照的地板 require（勿手改/勿 tidy，见 README）----
 require (
-	github.com/oekit/bootstrap v0.7.10
+	github.com/oekit/bootstrap v0.7.11
 	github.com/oekit/bootstrap/nacos v0.3.24
 	github.com/oekit/bootstrap/obs v0.2.26
 	github.com/oekit/concurrency v0.36.0
@@ -20,14 +20,14 @@ require (
 	github.com/oekit/kitex/cmd/thrift2openapi v0.1.0
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.16
-	github.com/oekit/kitx v0.9.2
+	github.com/oekit/kitx v0.9.3
 	github.com/oekit/logx v0.11.0
 	github.com/oekit/logx/hertzlog v0.1.2
 	github.com/oekit/logx/hlog v0.1.12
 	github.com/oekit/logx/kitexlog v0.1.12
 	github.com/oekit/logx/sink v0.1.2
 	github.com/oekit/metrics v0.4.0
-	github.com/oekit/middleware v0.18.1
+	github.com/oekit/middleware v0.19.0
 	github.com/oekit/network v0.11.0
 	github.com/oekit/nns v0.9.0
 	github.com/oekit/nns-endpoint v0.4.0
@@ -36,8 +36,8 @@ require (
 	github.com/oekit/registry v0.6.0
 	github.com/oekit/registry/nacos v0.2.0
 	github.com/oekit/registry/nacosimpl v0.3.0
-	github.com/oekit/timertask v0.5.3
+	github.com/oekit/timertask v0.5.4
 	github.com/oekit/timertask/redis v0.2.21
-	github.com/oekit/tracing v0.4.4
+	github.com/oekit/tracing v0.4.5
 	github.com/oekit/workflow v0.11.2
 )
