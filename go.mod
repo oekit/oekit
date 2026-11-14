@@ -7,11 +7,11 @@ require (
 	github.com/oekit/bootstrap v0.7.11
 	github.com/oekit/bootstrap/nacos v0.3.24
 	github.com/oekit/bootstrap/obs v0.2.26
-	github.com/oekit/concurrency v0.36.0
-	github.com/oekit/core v0.15.2
+	github.com/oekit/concurrency v0.36.1
+	github.com/oekit/core v0.15.3
 	github.com/oekit/data v0.22.0
 	github.com/oekit/etcdx v0.3.2
-	github.com/oekit/gormx v0.12.0
+	github.com/oekit/gormx v0.12.1
 	github.com/oekit/hertz v0.12.1
 	github.com/oekit/httpx v0.12.0
 	github.com/oekit/k8s v0.3.0
@@ -36,7 +36,7 @@ require (
 	github.com/oekit/registry v0.6.0
 	github.com/oekit/registry/nacos v0.2.0
 	github.com/oekit/registry/nacosimpl v0.3.0
-	github.com/oekit/timertask v0.5.4
+	github.com/oekit/timertask v0.5.5
 	github.com/oekit/timertask/redis v0.2.21
 	github.com/oekit/tracing v0.4.5
 	github.com/oekit/workflow v0.11.2
