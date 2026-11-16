@@ -27,7 +27,7 @@ require (
 	github.com/oekit/logx/kitexlog v0.1.12
 	github.com/oekit/logx/sink v0.1.2
 	github.com/oekit/metrics v0.4.1
-	github.com/oekit/middleware v0.19.4
+	github.com/oekit/middleware v0.20.0
 	github.com/oekit/network v0.11.1
 	github.com/oekit/nns v0.9.1
 	github.com/oekit/nns-endpoint v0.4.0
