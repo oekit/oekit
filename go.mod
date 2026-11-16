@@ -7,12 +7,12 @@ require (
 	github.com/oekit/bootstrap v0.7.12
 	github.com/oekit/bootstrap/nacos v0.3.25
 	github.com/oekit/bootstrap/obs v0.2.26
-	github.com/oekit/concurrency v0.37.0
+	github.com/oekit/concurrency v0.38.0
 	github.com/oekit/core v0.15.3
 	github.com/oekit/data v0.22.1
 	github.com/oekit/etcdx v0.3.2
 	github.com/oekit/gormx v0.12.1
-	github.com/oekit/hertz v0.12.3
+	github.com/oekit/hertz v0.12.4
 	github.com/oekit/httpx v0.12.1
 	github.com/oekit/k8s v0.3.0
 	github.com/oekit/kitex v0.8.2
@@ -20,7 +20,7 @@ require (
 	github.com/oekit/kitex/cmd/thrift2openapi v0.1.0
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.16
-	github.com/oekit/kitx v0.9.4
+	github.com/oekit/kitx v0.10.0
 	github.com/oekit/logx v0.11.0
 	github.com/oekit/logx/hertzlog v0.1.2
 	github.com/oekit/logx/hlog v0.1.12
@@ -31,7 +31,7 @@ require (
 	github.com/oekit/network v0.11.1
 	github.com/oekit/nns v0.9.1
 	github.com/oekit/nns-endpoint v0.4.0
-	github.com/oekit/pkg v0.50.0
+	github.com/oekit/pkg v0.52.0
 	github.com/oekit/redisx v0.16.2
 	github.com/oekit/registry v0.6.1
 	github.com/oekit/registry/nacos v0.2.0
