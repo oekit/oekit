@@ -29,7 +29,7 @@
 package oekit
 
 // Version 是本快照自身的版本（与仓库 git tag 一致）。
-const Version = "v0.7.4"
+const Version = "v0.7.5"
 
 // GeneratedAt 是快照生成时间（UTC）。
 const GeneratedAt = "2026-11-17T04:23:48Z"
