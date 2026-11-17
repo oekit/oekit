@@ -3,6 +3,18 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.6] — 2026-11-18
+
+### chore: BOM 快照重生成——2026-11-17/18 全矩阵重复逻辑审计修复波 24 仓发版收录（36 模块，const Version v0.7.6）
+
+本版重生成兼容快照（`gen_matrix_go.py`，各仓**远端** tag 口径，与站点 versions.json 同源）。本轮为全矩阵重复逻辑深挖审计修复波：
+
+- 根模块：pkg v0.52.0 → **v0.53.0**（八原语：RecoverTo/RandomToken/UUIDv4/OrBackground/SleepContext/JoinURL/Degraded/MaxLifetime）、core v0.15.4 → **v0.16.0**（chain.PanicError 补 Unwrap）、logx v0.11.0 → **v0.12.0**（渲染面脱敏组链双匹配安全修复 + mask 工具面导出）、concurrency v0.38.1 → **v0.39.0**（KeyedLimiterOf 时钟注入 + retry.Wait/SaturatedBackoff 导出）、kitx v0.10.1 → **v0.11.0**（validator Recovered/ErrValidation + authz ttlmap 单源）、registry v0.6.2 → **v0.7.0**（DefaultGroup/DefaultInstanceWeight/ErrInvalidPort）、gormx v0.12.2 → **v0.13.0**（crud List 溢出回显修复 + PrimaryKeyColumn 单源）、middleware v0.20.0 → **v0.20.1**（trace_id 单源 + registerReuse 收敛）、metrics → **v0.4.2**、tracing → **v0.4.8**；
+- 基础设施：etcdx → **v0.3.4**（errors.Join/watchRegistry 单源/backoffFor）、redisx → **v0.16.4**、k8s → **v0.3.2**、data → **v0.22.3**、timertask → **v0.5.7**（takeover retry 注入时钟）、workflow → **v0.11.4**（errAggregator 收敛）、network → **v0.11.3**、nns → **v0.9.3**（在途握手状态机单源）、bootstrap → **v0.7.14**（RecoverTo/Degraded 收敛）；
+- 服务承载：kitex → **v0.8.4**、kitex-examples → **v0.1.31**、httpx → **v0.12.3**（UTF-8 截断修复 + FNV/JoinURL/SleepContext 收敛）、hertz → **v0.12.6**（health panic/注册预算/权重兜底）、nns-endpoint → **v0.4.2**（URL 拼接修复 + 重试判定单源）。
+
+注：v0.7.0～v0.7.5 的 CHANGELOG 节欠账由历史会话遗留（tag 已发布但版本节缺失），本节不代补。
+
 ## [v0.6.1] — 2026-11-12
 
 ### chore: BOM 快照重生成——11-12 晚间 5 个根模块发版入快照（36 模块，const Version v0.6.1）
