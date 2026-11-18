@@ -3,6 +3,12 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.10] — 2026-11-19
+
+### chore: BOM 快照重生成——data 壳跟版收录（36 模块，const Version v0.7.10）
+
+- 根模块：data v0.22.4 → **v0.22.5**（门面壳跟版 gormx/timertask 四个导出符号——audit 壳同步红卡解锁）。
+
 ## [v0.7.9] — 2026-11-19
 
 ### chore: BOM 快照重生成——第二轮重复逻辑深挖审计波 13 仓发版收录（36 模块，const Version v0.7.9）
