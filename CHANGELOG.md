@@ -3,6 +3,13 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.7] — 2026-11-18
+
+### chore: BOM 快照重生成——大件收敛波发版收录（36 模块，const Version v0.7.7）
+
+- 根模块:pkg v0.53.0 → **v0.54.0**(container.VersionedCell/Checker 收敛/SignerWithClock nil 回退/pagination 信封原语)、core v0.16.0 → **v0.17.0**(lifecycle.ReadyProbe 就绪探活单源 + Snapshot/Store 换 VersionedCell 薄包装)、concurrency v0.39.0 → **v0.39.1**(keyedTTLRegistry 骨架单源)、kitx v0.11.0 → **v0.11.1**(WithClock(nil) 语义统一 5 处回退默认,行为变更)、registry v0.7.0 → **v0.8.0**(sdbridge 注册预算/InstanceEndpoint/WeightOrDefault/EnsureNotNil + instancewatcher 包)、gormx v0.13.0 → **v0.13.1**(分页信封口径单源)、timertask v0.5.7 → **v0.5.9**(指纹 diff 下沉/生命周期骨架单源/redis 分片时钟)、metrics → v0.4.2(容忍面 internal 单源)、tracing → v0.4.8(otlp 装配泛化/守卫构造单源);
+- 嵌套:timertask/redis v0.2.21 → **v0.2.22**(ShardManager 时钟注入);
+- 服务承载:kitex v0.8.4 → **v0.8.5**(ReadyProbe/sdbridge 消费)、hertz v0.12.6 → **v0.12.7**(ReadyProbe/instancewatcher 薄壳/sdbridge 消费)。
 ## [v0.7.6] — 2026-11-18
 
 ### chore: BOM 快照重生成——2026-11-17/18 全矩阵重复逻辑审计修复波 24 仓发版收录（36 模块，const Version v0.7.6）
