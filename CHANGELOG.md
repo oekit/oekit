@@ -3,6 +3,15 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.9] — 2026-11-19
+
+### chore: BOM 快照重生成——第二轮重复逻辑深挖审计波 13 仓发版收录（36 模块，const Version v0.7.9）
+
+本版重生成兼容快照（`gen_matrix_go.py`，各仓**远端** tag 口径，与站点 versions.json 同源）。本轮为第二轮全矩阵重复逻辑深挖审计修复波（11 单行为级孪生 bug + 收割尾巴）：
+
+- 根模块：pkg v0.54.0 → **v0.55.0**（singleflight nil-ctx 同步+契约化/httpjson 退避判据对齐/UUIDv4Err/单源收割尾巴）、core v0.17.0 → **v0.17.1**（lifecycle OrBackground 收割）、kitx v0.12.0 → **v0.12.1**（RefreshJTI 签发直出/jwt ttl 单源/索引挂载骨架合并）、registry v0.8.0 → **v0.8.1**（权重链恒正单口径/nacosimpl panic 走 Recovered/OrBackground 收敛）、nns → **v0.9.4**（registry 常量收口）、network → **v0.11.4**（sleepRedial 接 SleepContext/rand v2）、redisx → **v0.16.5**（ratelimit bucketCache 单源）、data → **v0.22.4**（门面泛型构造器冒烟测试）、timertask → **v0.5.10**（requeueClaim 走 canonicalMember）、nns-endpoint → **v0.4.3**（grpc Acquire 不回写节点惩罚）、etcdx → **v0.3.5**（registry stop 失败记 Warn/resnap 探活窗口）；
+- 服务承载：hertz v0.12.8 → **v0.13.0**（权重截断顺序修复 + adapter 能力面对齐 kitex）、kitex v0.8.5 → **v0.8.6**（nns typed-nil fail-fast + WithOnReady 无目标路径收敛 Started 门）。
+
 ## [v0.7.7] — 2026-11-18
 
 ### chore: BOM 快照重生成——大件收敛波发版收录（36 模块，const Version v0.7.7）
