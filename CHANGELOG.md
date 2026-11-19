@@ -3,6 +3,14 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.11] — 2026-11-20
+
+### chore: BOM 快照重生成——10 仓新版收录（36 模块，const Version v0.7.11）
+
+本版重生成兼容快照（`gen_matrix_go.py`，各仓**远端** tag 口径，与站点 versions.json 同源），收录并发发版波与本轮地板波：
+
+- 根模块：pkg v0.55.0 → **v0.55.1**、registry v0.8.1 → **v0.8.2**、kitx v0.12.1 → **v0.12.2**、nns v0.9.4 → **v0.10.0**、gormx v0.13.1 → **v0.14.0**（OpenMySQL 护栏 WithSkipProbe）、data v0.22.5 → **v0.23.0**、redisx v0.16.5 → **v0.16.6**、etcdx v0.3.5 → **v0.3.6**、httpx v0.12.3 → **v0.13.0**、middleware v0.21.0 → **v0.22.0**。
+
 ## [v0.7.10] — 2026-11-19
 
 ### chore: BOM 快照重生成——data 壳跟版收录（36 模块，const Version v0.7.10）
