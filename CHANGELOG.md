@@ -3,6 +3,21 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.13] — 2026-11-21
+
+### chore: BOM 快照重生成——第三轮设计/缺陷审计波 20 仓发版收录（36 模块，const Version v0.7.13）
+
+本版重生成兼容快照（`gen_matrix_go.py`，各仓**远端** tag 口径，与站点 versions.json 同源）。第三轮设计合理性+缺陷审计（29 单 + 并发会话 4 单）全部修复发版：
+
+- 根模块：pkg v0.55.1 → **v0.56.0**、core v0.17.2 → **v0.18.0**、concurrency v0.39.2 → **v0.40.0**、kitx v0.12.2 → **v0.13.0**、logx v0.12.0 → **v0.12.1**、metrics v0.4.2 → **v0.4.3**、registry v0.8.2 → **v0.8.3**、gormx v0.14.0 → **v0.14.1**、redisx v0.16.6 → **v0.16.7**、network v0.11.4 → **v0.12.0**、nns v0.10.0 → **v0.10.1**、etcdx v0.3.6 → **v0.3.7**、httpx v0.13.0 → **v0.14.0**、timertask v0.5.11 → **v0.5.12**、data v0.23.0 → **v0.24.1**、nns-endpoint v0.5.0 → **v0.5.1**；
+- 服务承载：middleware v0.22.0 → **v0.23.0**、hertz v0.14.0 → **v0.14.1**、kitex v0.8.7 → **v0.9.0**、kitex-examples v0.1.31 → **v0.1.32**（各模块变更明细见各仓 CHANGELOG）。
+
+## [v0.7.12] — 2026-11-21
+
+### chore: BOM 快照重生成（并发会话波，36 模块，const Version v0.7.12）
+
+- 本 tag 由并发发版波生成（gen_matrix_go.py，远端 tag 口径）；版本节为事后按发布事实补记，模块版本明细以 matrix.go 的 require 为准。
+
 ## [v0.7.11] — 2026-11-20
 
 ### chore: BOM 快照重生成——10 仓新版收录（36 模块，const Version v0.7.11）
