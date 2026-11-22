@@ -3,6 +3,12 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.16] — 2026-11-22
+
+### chore: BOM 快照重生成——pkg v0.59.0 breakingIndex/dead-path 补录（36 模块，const Version v0.7.16）
+
+- pkg v0.59.0 的 BREAKING 段（删除 toolname 包）此前因原节为散文形态被解析器漏收——pkg CHANGELOG 已 bullet 化（pkg#589），本版 breakingIndex 补录 2 条（含 `pkg/toolname` dead-path，下游 import 会构建失败的显式提示）。
+
 ## [v0.7.15] — 2026-11-22
 
 ### chore: BOM 快照重生成——pkg v0.59.0 breakingIndex 收录（36 模块，const Version v0.7.15）
