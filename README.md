@@ -28,7 +28,7 @@ oekit 是一套按能力分层的独立 Go 模块矩阵：**24 个活跃模块�
 | 通信 · 服务治理 | [httpx](https://github.com/oekit/httpx) · [nns-endpoint](https://github.com/oekit/nns-endpoint) · [network](https://github.com/oekit/network) · [nns](https://github.com/oekit/nns) · [registry](https://github.com/oekit/registry) |
 | 数据访问 | [gormx](https://github.com/oekit/gormx) · [redisx](https://github.com/oekit/redisx) · [etcdx](https://github.com/oekit/etcdx) · [data](https://github.com/oekit/data) · [timertask](https://github.com/oekit/timertask) |
 | 可观测性 | [logx](https://github.com/oekit/logx) · [tracing](https://github.com/oekit/tracing) · [metrics](https://github.com/oekit/metrics) |
-| 基础库 | [pkg](https://github.com/oekit/pkg)（23 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) · [kitx](https://github.com/oekit/kitx)（标识与校验）|
+| 基础库 | [pkg](https://github.com/oekit/pkg)（23 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) · [authx](https://github.com/oekit/authx)（原 kitx）（标识与校验）|
 
 几条关键依赖链：
 
@@ -111,7 +111,7 @@ go get github.com/oekit/oekit@latest
 | `github.com/oekit/gorm` | `github.com/oekit/gormx`（v0.3.0 起） |
 | `github.com/oekit/istio` | `github.com/oekit/kitex/istio`（v0.5.0 起，微库已收编） |
 | `github.com/oekit/handler/xxx` | `github.com/oekit/hertz/xxx`（v0.5.0 起，微库已收编） |
-| `github.com/oekit/<旧微库>`（stringx/slicex/validator 等已删仓） | `github.com/oekit/pkg/xxx`（微库并入 pkg；uidgen/validator 又于 pkg v0.10.0 拆至 oekit/kitx） |
+| `github.com/oekit/<旧微库>`（stringx/slicex/validator 等已删仓） | `github.com/oekit/pkg/xxx`（微库并入 pkg；uidgen/validator 又于 pkg v0.10.0 拆至独立仓，2026-11-23 改名 authx） |
 | `github.com/oekit/pkg/collectionx` | `github.com/oekit/pkg/container`（pkg v0.9.0 收编） |
 | `github.com/oekit/logx/shutdown` | `github.com/oekit/core/lifecycle`（别名已弃用） |
 | `<mod>/<mod>` 双层路径（registry/nns/workflow/kitex/middleware/hertz） | `github.com/oekit/<mod>`（模块根，2026-10-17 收平） |
