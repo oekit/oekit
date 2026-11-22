@@ -16,7 +16,6 @@ require (
 	github.com/oekit/httpx v0.14.0
 	github.com/oekit/k8s v0.3.2
 	github.com/oekit/kitex v0.10.0
-	github.com/oekit/kitex-examples v0.1.32
 	github.com/oekit/kitex/cmd/thrift2openapi v0.1.0
 	github.com/oekit/kitex/istio v0.7.0
 	github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel v0.7.17

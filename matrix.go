@@ -100,7 +100,6 @@ var matrixSnapshot = []Module{
 	{Path: "github.com/oekit/kitex/istio", Repo: "kitex", Version: "v0.7.0", Go: "1.26.0", Breaking: []Breaking{{Version: "istio/v0.1.0", Line: "**BREAKING**: 根模块依赖面断开 apache/thrift v0.16.0——kitexotel 与 istio 拆成嵌套模块（import 路径不变），根包 NewServerTracingSuite / NewClientTracingSuite 迁至 kitexotel；下游选到的 thrift 回到 v0.13.0（#37）"}}},
 	{Path: "github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel", Repo: "kitex", Version: "v0.7.17", Go: "1.26.0", Breaking: []Breaking{{Version: "observability/tracing/instrumentation/kitexotel/v0.1.0", Line: "**BREAKING**: 根模块依赖面断开 apache/thrift v0.16.0——kitexotel 与 istio 拆成嵌套模块（import 路径不变），根包 NewServerTracingSuite / NewClientTracingSuite 迁至 kitexotel；下游选到的 thrift 回到 v0.13.0（#37）"}}},
 	{Path: "github.com/oekit/workflow", Repo: "workflow", Version: "v0.11.4", Go: "1.26.0", Breaking: []Breaking{{Version: "v0.4.0", Line: "fix(async): 取消类错误豁免判据改测调用方 ctx——兄弟失败砍掉的任务不再记 Error:nil，报 context.Canceled 与「确实跑完」可区分；任务自身的超时错误不再被兄弟失败连带吞掉（#82）——此前四处判据测的是框架派生、会被框架在任务失败时 cancel 的 childCtx，退化成「此刻有没有兄弟失败过」，doc「绝不吞错」形态被吞；行为变更：RunAsyncWi"}, {Version: "v0.4.0", Line: "**BREAKING** fix(hook): After 改按逆注册序执行——AOP 洋葱配对恢复，span/事务类嵌套 hook 不再交叉关闭（#84）——此前 Before 正序、After 也正序，外层 hook 的收尾先于内层执行（TracingHook 先关 span 导致 AuditHook 事件丢失/挂错 parent，事务型 hook 的 COMMIT 先于内层收尾）；文档原明写"}, {Version: "v0.3.6", Line: "**BREAKING** fix(async): `RunAsync` 补取消兜底——外部 cancel/超时后 `Future.Wait` 不再假成功（[#35](https://github.com/oekit/workflow/issues/35)）——`Run` 完成路径有取消兜底（全部任务走 skip/豁免 ⇒ firstErr 为 nil ⇒ 返回 ctx.Err()，「假成功」已修）"}, {Version: "v0.3.0", Line: "**包提升至模块根**：`github.com/oekit/workflow/workflow` → `github.com/oekit/workflow` （仅移动目录与导入路径，代码零逻辑变化；矩阵内无消费方）"}}},
-	{Path: "github.com/oekit/kitex-examples", Repo: "kitex-examples", Version: "v0.1.32", Go: "1.26.0", Breaking: []Breaking{}},
 }
 
 // versionsSnapshot 是按 module 路径索引的版本（**包内私有**，对外只给副本）。
@@ -117,7 +116,6 @@ var versionsSnapshot = map[string]string{
 	"github.com/oekit/httpx":                    "v0.14.0",
 	"github.com/oekit/k8s":                      "v0.3.2",
 	"github.com/oekit/kitex":                    "v0.10.0",
-	"github.com/oekit/kitex-examples":           "v0.1.32",
 	"github.com/oekit/kitex/cmd/thrift2openapi": "v0.1.0",
 	"github.com/oekit/kitex/istio":              "v0.7.0",
 	"github.com/oekit/kitex/observability/tracing/instrumentation/kitexotel": "v0.7.17",
