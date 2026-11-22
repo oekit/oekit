@@ -15,7 +15,7 @@ require (
 	github.com/oekit/hertz v0.14.1
 	github.com/oekit/httpx v0.14.0
 	github.com/oekit/k8s v0.3.2
-	github.com/oekit/kitex v0.9.0
+	github.com/oekit/kitex v0.10.0
 	github.com/oekit/kitex-examples v0.1.32
 	github.com/oekit/kitex/cmd/thrift2openapi v0.1.0
 	github.com/oekit/kitex/istio v0.7.0
@@ -31,7 +31,7 @@ require (
 	github.com/oekit/network v0.12.0
 	github.com/oekit/nns v0.10.1
 	github.com/oekit/nns-endpoint v0.5.1
-	github.com/oekit/pkg v0.56.0
+	github.com/oekit/pkg v0.57.1
 	github.com/oekit/redisx v0.16.7
 	github.com/oekit/registry v0.8.3
 	github.com/oekit/registry/nacos v0.2.0

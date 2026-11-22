@@ -3,6 +3,13 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.14] — 2026-11-22
+
+### chore: BOM 快照重生成——深度优化轮与版本倒挂收敛（36 模块，const Version v0.7.14）
+
+- 根模块：pkg v0.56.0 → **v0.57.1**（#571 pii/subhub 上移 + #572 LRU TryLock 性能补丁；v0.56.1/v0.57.0 时序倒挂由本版收敛，v0.57.0 裸 tag 已补 Release）；
+- 服务承载：kitex v0.9.0 → **v0.10.0**（thrift2openapi 消费方后处理收编：-envelope-fields/-error-responses/-extra-routes，#281/#288）。
+
 ## [v0.7.13] — 2026-11-21
 
 ### chore: BOM 快照重生成——第三轮设计/缺陷审计波 20 仓发版收录（36 模块，const Version v0.7.13）
