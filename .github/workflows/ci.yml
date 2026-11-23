@@ -106,12 +106,26 @@ jobs:
       #
       # 子目录里放的是 .py 仓（matrix-tools 无 Go 文件）⇒ 不影响本仓的
       # `go build ./...` / `go vet ./...` / `go list -m all`。
+      # ★ 源状态由**本仓声明**（data/matrix_tools_ref），不是硬编码 main。
+      #
+      #   为什么：改名/口径类变更的落地顺序天然**跨仓互锁**——BOM 要按新口径重生成
+      #   （kitx→authx 改名 + 地板对齐），而新口径的生成器此刻在 matrix-tools 的
+      #   PR 分支上；若本仓 CI 钉死 main，就要求 matrix-tools 先合；而 matrix-tools
+      #   的矩阵审计又要求本仓 BOM 已更新 ⇒ 两边先合任一个都红。
+      #
+      #   破法（与站点同一套机制）：**被审方声明它对应的审判方状态，审判方按声明取源**。
+      #     · 声明值 = 不可变提交 SHA（源合并后仍在历史里可达，不受「合并后自动删分支」影响）；
+      #     · 源合并后：由后续 PR 把声明值改指 main（声明漂移由 matrix-tools 侧审计兜底）。
+      - name: Determine matrix-tools ref（伞仓声明的源状态）
+        id: src
+        run: |
+          ref=$(cat data/matrix_tools_ref 2>/dev/null | tr -d '[:space:]')
+          [ -n "$ref" ] || ref=main
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v7
         with:
           repository: oekit/matrix-tools
-          # 幽灵 tag 跳过守卫已随 matrix-tools#299 上 main（#294/#295/#296 修复），
-          # 本行回归 ref: main——此前临时 pin fd21ffb 的跟进收口。
-          ref: main
+          ref: ${{ steps.src.outputs.ref }}
           path: matrix-tools
       - name: 准备判据现场（克隆矩阵模块 + 把本仓接到 BASE/oekit）
         # 判据要读两样事实：
