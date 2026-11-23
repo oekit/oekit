@@ -3,6 +3,24 @@
 oekit 组织**兼容矩阵快照（BOM）**仓：本仓自身即模块 `github.com/oekit/oekit`，
 声明「当前互相兼容的一组模块版本」。各模块独立 SemVer，数字本身不带兼容信息。
 
+## [v0.7.18] — 2026-11-23
+
+### chore: BOM 快照重生成——kitx→authx 改名 + 各仓地板对齐（35 模块，const Version v0.7.18）
+
+- **改名落地**：根模块 github.com/oekit/kitx v0.13.0 → **github.com/oekit/authx v0.14.0**（仓与 module 同时改名，消除与 RPC 框架仓 kitex 的一字之差误查面；旧路径 github.com/oekit/kitx 冻结在 v0.13.0，v0.14.0 起该路径不可解析）。authx v0.14.0 的 breakingIndex 已随改名收录。
+- **移出矩阵**：kitex-examples（已出矩阵，不再是发版单元）从地板快照与登记表移除。
+- **地板对齐各仓远端最新 tag**（17 个根模块版本推进）：data v0.24.1 → **v0.25.0**、kitex v0.10.0 → **v0.10.1**、pkg v0.59.1 → **v0.60.0**、tracing v0.4.8 → v0.4.9、registry v0.8.3 → v0.8.4、gormx v0.14.1 → v0.14.2、redisx v0.16.7 → v0.16.8、etcdx v0.3.7 → v0.3.8、httpx v0.14.0 → v0.14.1、network v0.12.0 → v0.12.1、timertask v0.5.12 → v0.5.13、middleware v0.23.0 → v0.23.1、k8s v0.3.2 → v0.3.3、nns v0.10.1 → v0.10.2、nns-endpoint v0.5.1 → v0.5.2、bootstrap v0.7.14 → v0.7.15、hertz v0.14.1 → v0.14.2。
+- **源面钉扎**（新机制）：data/matrix_tools_ref + ci.yml「按本仓声明取 matrix-tools 状态」。改名/口径类变更的落地顺序天然跨仓互锁——BOM 要按新口径重生成，而新口径的生成器此刻在 matrix-tools 的 PR 分支上；若本仓 CI 钉死 main 就要求 matrix-tools 先合，而 matrix-tools 的矩阵审计又要求本仓 BOM 已更新 ⇒ 两边先合任一个都红。破法：被审方声明它对应的审判方状态，审判方按声明取源（声明值为不可变提交 SHA，源合并后仍在历史里可达）。
+- **门禁加固**：BOM CI 的判据自证改挑 **patch > 0** 的地板行降档，并断言降档后快照**真的变了**。改名后首行地板是 authx v0.14.0（patch=0），旧写法按 max(c-1,0) 降档会夹回 0 ⇒ 快照没变 ⇒ 自证空转 ⇒ 门禁失牙（本轮实测自证判「未被判红，实际 0」）。
+
+## [v0.7.17] — 2026-11-22
+
+### chore: BOM 快照重生成——pkg v0.59.1 对齐（36 模块，const Version v0.7.17）
+
+- 根模块：pkg v0.59.0 → **v0.59.1**（零行为变化的注释层与声明面对齐）。
+- 快照自身版本 v0.7.16 → v0.7.17。
+- ⚠️ 本节为**补记**：v0.7.17 发布时未在 CHANGELOG 留下版本节（tag 快照的 CHANGELOG 顶部停在 v0.7.16）⇒ 半程发布状态；本版补齐说明，避免版本线倒挂。
+
 ## [v0.7.16] — 2026-11-22
 
 ### chore: BOM 快照重生成——pkg v0.59.0 breakingIndex/dead-path 补录（36 模块，const Version v0.7.16）
