@@ -164,12 +164,29 @@ jobs:
           import re,sys
           p=sys.argv[1]
           t=open(p,encoding='utf-8').read()
-          m=re.search(r'(github[.]com/oekit/[a-z0-9-]+) v([0-9]+)[.]([0-9]+)[.]([0-9]+)',t)
-          assert m,'go.mod 里找不到 oekit 地板行'
-          mod,a,b,c=m.group(1),int(m.group(2)),int(m.group(3)),int(m.group(4))
-          new='%s v%d.%d.%d'%(mod,a,b,max(c-1,0))
+          pat=re.compile(r'(github[.]com/oekit/[a-z0-9-]+) v([0-9]+)[.]([0-9]+)[.]([0-9]+)')
+          hits=list(pat.finditer(t))
+          assert hits,'go.mod 里找不到 oekit 地板行'
+          # 挑一个 **patch > 0** 的地板行来降一档。
+          #   降 patch 会落到一个**真实存在过**的版本上 ⇒ 判据读到的是「真漂移」
+          #   （退出码 1），而不是「读不到」（退出码 2）。
+          #   ★ 不能固定取第一行：kitx→authx 改名后第一行是 authx v0.14.0（patch=0），
+          #     降 patch 会被 max(c-1,0) 夹回 0 ⇒ **快照根本没变** ⇒ 自证空转 ⇒
+          #     门禁失牙（本轮实测：自证步骤判「未被判红，实际 0」）。
+          #   降档后**必须断言快照真的变了**——空转的自证比没有自证更坏（它假装有牙齿）。
+          cands=[m for m in hits if int(m.group(4))>0]
+          if cands:
+            m=cands[0]
+            mod,a,b,c=m.group(1),int(m.group(2)),int(m.group(3)),int(m.group(4))
+            new='%s v%d.%d.%d'%(mod,a,b,c-1)
+          else:
+            # 全矩阵 patch 都是 0 的极端情形：降 minor（仍与真值不同 ⇒ 判红）
+            m=hits[0]
+            mod,a,b,c=m.group(1),int(m.group(2)),int(m.group(3)),int(m.group(4))
+            new='%s v%d.%d.%d'%(mod,a,max(b-1,0),c)
+          assert new != m.group(0),'降档后快照未变化——自证会空转，必须修判据选择逻辑'
           open(p,'w',encoding='utf-8').write(t[:m.start()]+new+t[m.end():])
-          print('自证用的陈旧快照地板：',new)
+          print('自证用的陈旧快照地板：',new,'（原：',m.group(0),'）')
           " "$PROOF/oekit/go.mod"
           # 模块仓复用同一批克隆（符号链接，不重复克隆）
           for d in "$BASE"/*/; do
