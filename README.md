@@ -2,9 +2,9 @@
 
 > **O**pen **E**asy **Kit** — 开源 · 易用 · 工具集合
 
-![modules](https://img.shields.io/badge/modules-24-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.26%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
+![modules](https://img.shields.io/badge/modules-23-4C6EF5) ![Go](https://img.shields.io/badge/Go-1.26%2B-00ADD8?logo=go&logoColor=white) ![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Test-845EF7) ![License](https://img.shields.io/badge/License-MIT-3DA639)
 
-oekit 是一套按能力分层的独立 Go 模块矩阵：**24 个活跃模块仓库，每仓独立发版（SemVer）、独立 CI、按需取用**。
+oekit 是一套按能力分层的独立 Go 模块矩阵：**23 个活跃模块仓库，每仓独立发版（SemVer）、独立 CI、按需取用**。
 从 `errors` / `timex` 这类零依赖微包，到 Hertz / Kitex 生态适配器，全部遵循同一套接口分层与开发规范。
 
 - 项目主页：**https://oekit.github.io/**
@@ -24,11 +24,11 @@ oekit 是一套按能力分层的独立 Go 模块矩阵：**24 个活跃模块�
 
 | 能力层 | 模块 |
 |---|---|
-| 应用引导 · 框架生态 | [bootstrap](https://github.com/oekit/bootstrap) · [hertz](https://github.com/oekit/hertz) · [kitex](https://github.com/oekit/kitex) · [middleware](https://github.com/oekit/middleware) · [workflow](https://github.com/oekit/workflow) · [kitex-examples](https://github.com/oekit/kitex-examples) · [k8s](https://github.com/oekit/k8s) |
+| 应用引导 · 框架生态 | [bootstrap](https://github.com/oekit/bootstrap) · [hertz](https://github.com/oekit/hertz) · [kitex](https://github.com/oekit/kitex) · [middleware](https://github.com/oekit/middleware) · [workflow](https://github.com/oekit/workflow) · [k8s](https://github.com/oekit/k8s) |
 | 通信 · 服务治理 | [httpx](https://github.com/oekit/httpx) · [nns-endpoint](https://github.com/oekit/nns-endpoint) · [network](https://github.com/oekit/network) · [nns](https://github.com/oekit/nns) · [registry](https://github.com/oekit/registry) |
 | 数据访问 | [gormx](https://github.com/oekit/gormx) · [redisx](https://github.com/oekit/redisx) · [etcdx](https://github.com/oekit/etcdx) · [data](https://github.com/oekit/data) · [timertask](https://github.com/oekit/timertask) |
 | 可观测性 | [logx](https://github.com/oekit/logx) · [tracing](https://github.com/oekit/tracing) · [metrics](https://github.com/oekit/metrics) |
-| 基础库 | [pkg](https://github.com/oekit/pkg)（23 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) · [kitx](https://github.com/oekit/kitx)（标识与校验）|
+| 基础库 | [pkg](https://github.com/oekit/pkg)（38 合 1）· [concurrency](https://github.com/oekit/concurrency) · [core](https://github.com/oekit/core) · [authx](https://github.com/oekit/authx)（标识与校验 + hash，原 kitx）|
 
 几条关键依赖链：
 
@@ -78,7 +78,7 @@ go get github.com/oekit/oekit@latest
 各模块独立 SemVer，数字本身不带兼容信息——**「这些模块当前互相兼容」**由本仓声明：
 `matrix.go` 记录全部模块（含 `logx/hlog` 等嵌套模块）的版本快照（`Matrix()` / `Versions()` /
 `VersionOf`），并声明**每个模块自己的破坏性变更**（`BreakingOf` / `HasBreaking` /
-`BreakingModules`）——矩阵里有 108 条 breaking 记录，v0.2.0 起随快照一起发布，
+`BreakingModules`）——矩阵里的 breaking 记录随快照一起发布（v0.2.0 起），
 消费方不必再翻站点就知道这组版本里哪些模块会断。
 `go.mod` 以 require 地板钉住同一组版本。
 
@@ -111,7 +111,7 @@ go get github.com/oekit/oekit@latest
 | `github.com/oekit/gorm` | `github.com/oekit/gormx`（v0.3.0 起） |
 | `github.com/oekit/istio` | `github.com/oekit/kitex/istio`（v0.5.0 起，微库已收编） |
 | `github.com/oekit/handler/xxx` | `github.com/oekit/hertz/xxx`（v0.5.0 起，微库已收编） |
-| `github.com/oekit/<旧微库>`（stringx/slicex/validator 等已删仓） | `github.com/oekit/pkg/xxx`（微库并入 pkg；uidgen/validator 又于 pkg v0.10.0 拆至 oekit/kitx） |
+| `github.com/oekit/<旧微库>`（stringx/slicex/validator 等已删仓） | `github.com/oekit/pkg/xxx`（微库并入 pkg；uidgen/validator 又于 pkg v0.10.0 拆至 oekit/authx，原 kitx） |
 | `github.com/oekit/pkg/collectionx` | `github.com/oekit/pkg/container`（pkg v0.9.0 收编） |
 | `github.com/oekit/logx/shutdown` | `github.com/oekit/core/lifecycle`（别名已弃用） |
 | `<mod>/<mod>` 双层路径（registry/nns/workflow/kitex/middleware/hertz） | `github.com/oekit/<mod>`（模块根，2026-10-17 收平） |
